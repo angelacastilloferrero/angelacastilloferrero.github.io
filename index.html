@@ -11,85 +11,106 @@
     <link rel="stylesheet" type="text/css" href="style.css"> 
 
     <style>
-
         body {
-          
-            overflow: hidden;
+            overflow-x: hidden; 
             background-size: cover;
             background-repeat: no-repeat;
             
-         
-            max-width: 900px; 
-            margin: 40px auto; 
-            padding: 0 20px; 
-            
-            font-family: Arial, sans-serif; 
+            font-family: Arial, sans-serif;
             line-height: 1.5;
             font-size: 1em;
+            margin: 0;
         }
 
-       
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
         a {
             color: #0000ff;
             letter-spacing: -0.3px;
-            text-decoration: underline; 
+            text-decoration: underline;
         }
         
-        /* 2. ALINEACIÓN DE CABECERA: Usando Flexbox */
-        .header {
-            display: flex; 
-            justify-content: space-between; 
-            width: 100%; 
-            margin-bottom: 0.5px; 
-        }
-
-        .contact-info {
-            text-align: right; 
-        }
-
-        /* Hacemos los enlaces de contacto sin subrayar para un look más limpio, como el ejemplo original */
-        .contact-info a {
-             text-decoration: none;
-             display: block; /* Asegura que cada uno esté en su propia línea */
-             font-size: 1em;
-        }
-        
-        /* Estilo para el subrayado ondulado */
         .wavy-underline {
             text-decoration-style: wavy;
         }
         
-        /* Estilo para el texto general para separarlo visualmente */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
         .main-info p {
-            margin: 0;
+            margin: 0.5em 0;
+        }
+
+        /* AJUSTE PARA LA SECCIÓN DE CONTACTO SEGÚN TU PREFERENCIA */
+        .contact-info {
+            text-align: right;
+            line-height: 1.5;
         }
         
+        .contact-info p {
+             font-size: 1em;
+             margin: 0;
+        }
+        
+        /* ESTILOS PARA LA GALERÍA DE IMÁGENES (CORRECCIÓN) */
+        .project-section {
+            margin-bottom: 50px;
+        }
+
+        .image-gallery {
+            display: flex;
+            gap: 5px; /* Espacio reducido entre las imágenes */
+            margin-top: 20px;
+            overflow-x: auto; /* Permite desplazamiento si las imágenes no caben */
+        }
+        
+        .image-gallery a {
+            text-decoration: none; /* Quitamos el subrayado del link que envuelve a la imagen */
+        }
+        
+        .image-gallery img {
+            height: 640px; /* Tamaño fijo que solicitaste */
+            width: auto; /* Permite que el ancho se ajuste manteniendo la proporción */
+            display: block;
+            flex-shrink: 0; /* IMPORANTE: Evita que las imágenes se encojan si no caben */
+            object-fit: cover; /* Asegura que la imagen no se distorsione */
+        }
+        
+        /* ESTILO PARA LA LÍNEA DIVISORIA */
+        hr.project-divider {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 40px 0;
+        }
+
     </style>
 
 </head>
 
 <body>
-    <div id="content">
-        <div class="container">
-
-            <header class="header">
-                <div class="main-info">
-                    <div id="info"></div>
-                    <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
-                    <p>Jewelry / Fashion Accessories designer</p>
-                    <p>Based in Barcelona</p>
-                    <p>Full PDF available upon <u class="wavy-underline">request</u></p>
-                </div>
-
-                <div class="contact-info">
-                    <p>castillofereroangela (at) gmail (dot) com   +34 686 646 684</p>
-                </div>
-            </header>
-            
-            </div>
-    </div>
-
     <main class="container">
+
+        <header class="header">
+            <div class="main-info">
+                <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
+                <p>Jewelry / Fashion Accessories designer</p>
+                <p>Based in Barcelona</p>
+                <p>Full PDF available upon <u class="wavy-underline">request</u></p>
+            </div>
+
+            <div class="contact-info">
+                <p>castillofereroangela (at) gmail (dot) com    +34 686 646 684</p>
+            </div>
+        </header>
 
         <section class="project-section">
             <div class="project-details">
@@ -100,18 +121,20 @@
             
             <div class="image-gallery">
                 <a href="https://d2w9rnfcy7mm78.cloudfront.net/40812628/original_172a35df3b3170e2a010826f4a9fe9b0.png?1762184347?bc=0" target="_blank">
-                <img src="TwistCapsule-1.png" alt="Imagen del proyecto Twist Capsule 1"  height="640"  width="480">
+                <img src="TwistCapsule-1.png" alt="Imagen del proyecto Twist Capsule 1">
                 </a>
                 <a href="https://d2w9rnfcy7mm78.cloudfront.net/40812625/original_85f18373dedff59799d870842540b485.png?1762184345?bc=0" target="_blank">
-                <img src="TwistCapsule-2.png" alt="Imagen del proyecto Twist Capsule 2"  height="640"  width="640">
+                <img src="TwistCapsule-2.png" alt="Imagen del proyecto Twist Capsule 2">
                 </a>
                 <a href="https://d2w9rnfcy7mm78.cloudfront.net/40812631/original_19f7e92dfe38cfa2b98cf28f4ba0f9c4.png?1762184353?bc=0" target="_blank">
-                <img src="TwistCapsule-3.png" alt="Imagen del proyecto Twist Capsule 3"  height="640"  width="480">
+                <img src="TwistCapsule-3.png" alt="Imagen del proyecto Twist Capsule 3">
                 </a>
             </div>
         </section>
 
-        <hr> <section class="project-section">
+        <hr class="project-divider"> 
+
+        <section class="project-section">
             <div class="project-details">
                 <h2>keyboard</h2>
                 <p class="meta">product/software</p>
@@ -129,8 +152,8 @@
 
     </main>
 
-    <footer class="footer">
-        <p class="last-updated">last updated: 03/nov/25</p>
+    <footer class="footer container">
+        <p class="last-updated" style="text-align: right;">last updated: 03/nov/25</p>
     </footer>
 </body>
 </html>
