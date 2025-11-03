@@ -45,14 +45,15 @@
         /* CABECERA Y CONTACTO (ALINEACIÓN DERECHA) */
         .header {
             display: flex;
-            justify-content: space-between; /* Empuja info a extremos */
+            justify-content: space-between;
             align-items: flex-start;
             width: 100%;
             margin-bottom: 40px;
         }
 
+        /* Quitamos el margen a los párrafos de la cabecera */
         .main-info p {
-            margin: 0.5em 0;
+            margin: 0;
         }
 
         .contact-info {
@@ -60,7 +61,7 @@
             line-height: 1.5;
         }
         
-        /* APLICACIÓN CLAVE: white-space: nowrap; para forzar la línea única */
+        /* Contacto en una línea */
         .contact-info p {
              font-size: 1em;
              margin: 0;
@@ -70,6 +71,17 @@
         /* SECCIONES DE PROYECTO */
         .project-section {
             margin-bottom: 50px;
+        }
+
+        /* CLAVE: Elimina el margen de los párrafos en los detalles del proyecto */
+        .project-details p {
+            margin: 0; 
+        }
+
+        /* Estilo para el título de proyecto (h2) */
+        .project-details h2 {
+            font-size: 1.5em; 
+            margin: 0 0 0.5em 0; /* Un poco de margen solo abajo del título, si lo deseas */
         }
 
         /* GALERÍA DE IMÁGENES (INCRUSTADAS Y EN FILA) */
@@ -94,14 +106,7 @@
             border-top: 1px solid #ccc; 
             margin: 40px 0;
         }
-
-        /* CORRECCIÓN ADICIONAL: Asegurarse de que los títulos usen <h2> */
-        /* La etiqueta <h> no existe en HTML; debe ser <h2>, <h3>, etc. */
-        .project-details h2 {
-            font-size: 1.5em; /* Ejemplo de tamaño */
-            margin-bottom: 0.5em;
-        }
-
+        
     </style>
 
 </head>
@@ -118,7 +123,7 @@
             </div>
 
             <div class="contact-info">
-                <p>castillofereroangela (at) gmail (dot) com // +34 686 646 684</p>
+                <p>castillofereroangela (at) gmail (dot) com    +34 686 646 684</p>
             </div>
         </header>
         
@@ -126,7 +131,7 @@
 
         <section class="project-section">
             <div class="project-details">
-                <p>Twist Capsule <i>[PDPAOLA]</i></p>
+                <h2>Twist Capsule <i>[PDPAOLA]</i></h2>
                 <p class="meta">Crafted in 18K gold plated 925 silver, hand-set cubic zirconia pavé/sodalite gemstone</p>
                 <p>Collection conceptualization. Concept Development. Material Selection. Technical Specifications. Feedback Integration. Goordination and supervision of the project. Definition of Quality Standards.</p>
             </div>
@@ -142,7 +147,7 @@
 
         <section class="project-section">
             <div class="project-details">
-                <p>Sant Valentin Collection 2025 <i>[RÍGIDO]</i></p>
+                <h2>Sant Valentin Collection 2025 <i>[RÍGIDO]</i></h2>
                 <p class="meta">925 silver</p>
                 <p>Padlock and Perfume flask pendant.</p>
             </div>
