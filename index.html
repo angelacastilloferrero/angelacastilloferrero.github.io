@@ -60,9 +60,11 @@
             line-height: 1.5;
         }
         
+        /* APLICACIÓN CLAVE: white-space: nowrap; para forzar la línea única */
         .contact-info p {
              font-size: 1em;
              margin: 0;
+             white-space: nowrap; 
         }
         
         /* SECCIONES DE PROYECTO */
@@ -75,11 +77,11 @@
             display: flex;
             gap: 5px; 
             margin-top: 20px;
-            overflow-x: auto; /* Permite scroll horizontal si las imágenes exceden el ancho */
+            overflow-x: auto; 
         }
         
         .image-gallery img {
-            height: 640px; /* Altura fija */
+            height: 640px; 
             width: auto; 
             display: block;
             flex-shrink: 0; 
@@ -89,8 +91,15 @@
         /* ESTILO PARA LA LÍNEA DIVISORIA */
         hr.project-divider {
             border: none;
-            border-top: 1px solid #ccc; /* Línea gris delgada */
+            border-top: 1px solid #ccc; 
             margin: 40px 0;
+        }
+
+        /* CORRECCIÓN ADICIONAL: Asegurarse de que los títulos usen <h2> */
+        /* La etiqueta <h> no existe en HTML; debe ser <h2>, <h3>, etc. */
+        .project-details h2 {
+            font-size: 1.5em; /* Ejemplo de tamaño */
+            margin-bottom: 0.5em;
         }
 
     </style>
@@ -117,7 +126,7 @@
 
         <section class="project-section">
             <div class="project-details">
-                <h2>Twist Capsule [PDPAOLA]</h2>
+                <h2>Twist Capsule <i>[PDPAOLA]</i></h2>
                 <p class="meta">Crafted in 18K gold plated 925 silver, hand-set cubic zirconia pavé/sodalite gemstone</p>
                 <p>Collection conceptualization. Concept Development. Material Selection. Technical Specifications. Feedback Integration. Goordination and supervision of the project. Definition of Quality Standards.</p>
             </div>
@@ -133,17 +142,17 @@
 
         <section class="project-section">
             <div class="project-details">
-                <h2>Sant Valentin Collection 2025 [RÍGIDO]</h2>
+                <h2>Sant Valentin Collection 2025 <i>[RÍGIDO]</i></h2>
                 <p class="meta">925 silver</p>
                 <p>Padlock and Perfume flask pendant.</p>
             </div>
             
             <div class="image-gallery">
-                <img src="placeholder-5.jpg" alt="Imagen del proyecto keyboard 1">
-                <img src="placeholder-6.jpg" alt="Imagen del proyecto keyboard 2">
-                <img src="placeholder-7.jpg" alt="Imagen del proyecto keyboard 3">
-                <img src="placeholder-8.jpg" alt="Imagen del proyecto keyboard 4">
-                <img src="placeholder-9.jpg" alt="Imagen del proyecto keyboard 5">
+                <img src="placeholder-5.jpg" alt="Imagen 1">
+                <img src="placeholder-6.jpg" alt="Imagen 2">
+                <img src="placeholder-7.jpg" alt="Imagen 3">
+                <img src="placeholder-8.jpg" alt="Imagen 4">
+                <img src="placeholder-9.jpg" alt="Imagen 5">
             </div>
         </section>
 
