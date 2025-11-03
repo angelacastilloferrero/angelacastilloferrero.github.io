@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="style.css"> 
 
     <style>
+        /* CONFIGURACIÓN BASE Y ANCHO TOTAL */
         body {
             overflow-x: hidden; 
             background-size: cover;
@@ -22,12 +23,15 @@
             margin: 0;
         }
 
+        /* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 100%;
+            width: 100%;
+            margin: 40px 0;
+            padding: 0 50px; /* Separación de los bordes laterales de la ventana */
         }
 
+        /* ESTILOS DE ENLACES */
         a {
             color: #0000ff;
             letter-spacing: -0.3px;
@@ -38,9 +42,10 @@
             text-decoration-style: wavy;
         }
         
+        /* CABECERA Y CONTACTO (ALINEACIÓN DERECHA) */
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Empuja info a extremos */
             align-items: flex-start;
             width: 100%;
             margin-bottom: 40px;
@@ -50,7 +55,6 @@
             margin: 0.5em 0;
         }
 
-        /* AJUSTE PARA LA SECCIÓN DE CONTACTO SEGÚN TU PREFERENCIA */
         .contact-info {
             text-align: right;
             line-height: 1.5;
@@ -61,34 +65,31 @@
              margin: 0;
         }
         
-        /* ESTILOS PARA LA GALERÍA DE IMÁGENES (CORRECCIÓN) */
+        /* SECCIONES DE PROYECTO */
         .project-section {
             margin-bottom: 50px;
         }
 
+        /* GALERÍA DE IMÁGENES (INCRUSTADAS Y EN FILA) */
         .image-gallery {
             display: flex;
-            gap: 5px; /* Espacio reducido entre las imágenes */
+            gap: 5px; 
             margin-top: 20px;
-            overflow-x: auto; /* Permite desplazamiento si las imágenes no caben */
-        }
-        
-        .image-gallery a {
-            text-decoration: none; /* Quitamos el subrayado del link que envuelve a la imagen */
+            overflow-x: auto; /* Permite scroll horizontal si las imágenes exceden el ancho */
         }
         
         .image-gallery img {
-            height: 640px; /* Tamaño fijo que solicitaste */
-            width: auto; /* Permite que el ancho se ajuste manteniendo la proporción */
+            height: 640px; /* Altura fija */
+            width: auto; 
             display: block;
-            flex-shrink: 0; /* IMPORANTE: Evita que las imágenes se encojan si no caben */
-            object-fit: cover; /* Asegura que la imagen no se distorsione */
+            flex-shrink: 0; 
+            object-fit: cover; 
         }
         
         /* ESTILO PARA LA LÍNEA DIVISORIA */
         hr.project-divider {
             border: none;
-            border-top: 1px solid #ccc;
+            border-top: 1px solid #ccc; /* Línea gris delgada */
             margin: 40px 0;
         }
 
@@ -111,6 +112,8 @@
                 <p>castillofereroangela (at) gmail (dot) com    +34 686 646 684</p>
             </div>
         </header>
+        
+        <hr class="project-divider"> 
 
         <section class="project-section">
             <div class="project-details">
@@ -120,15 +123,9 @@
             </div>
             
             <div class="image-gallery">
-                <a href="https://d2w9rnfcy7mm78.cloudfront.net/40812628/original_172a35df3b3170e2a010826f4a9fe9b0.png?1762184347?bc=0" target="_blank">
-                <img src="TwistCapsule-1.png" alt="Imagen del proyecto Twist Capsule 1">
-                </a>
-                <a href="https://d2w9rnfcy7mm78.cloudfront.net/40812625/original_85f18373dedff59799d870842540b485.png?1762184345?bc=0" target="_blank">
-                <img src="TwistCapsule-2.png" alt="Imagen del proyecto Twist Capsule 2">
-                </a>
-                <a href="https://d2w9rnfcy7mm78.cloudfront.net/40812631/original_19f7e92dfe38cfa2b98cf28f4ba0f9c4.png?1762184353?bc=0" target="_blank">
-                <img src="TwistCapsule-3.png" alt="Imagen del proyecto Twist Capsule 3">
-                </a>
+                <img src="https://d2w9rnfcy7mm78.cloudfront.net/40812628/original_172a35df3b3170e2a010826f4a9fe9b0.png?1762184347?bc=0" alt="Imagen del proyecto Twist Capsule 1">
+                <img src="https://d2w9rnfcy7mm78.cloudfront.net/40812625/original_85f18373dedff59799d870842540b485.png?1762184345?bc=0" alt="Imagen del proyecto Twist Capsule 2">
+                <img src="https://d2w9rnfcy7mm78.cloudfront.net/40812631/original_19f7e92dfe38cfa2b98cf28f4ba0f9c4.png?1762184353?bc=0" alt="Imagen del proyecto Twist Capsule 3">
             </div>
         </section>
 
@@ -136,9 +133,9 @@
 
         <section class="project-section">
             <div class="project-details">
-                <h2>keyboard</h2>
-                <p class="meta">product/software</p>
-                <p>A software/hardware combination remains a custom-built QWERTY keyboard into musical scales, taking both the tactile qualities from mechanical keyboard switches and the expressive freedom and customizability from MIDI piano keyboards. Designed specifically for composers in the making, and for those who enjoy music production, the tool works as a bridge between typists and musicians. The tool provides a fresh means of inputs for existing composers stack in melodic ruts as well as open up the opportunity for experienced typists to become QWERTY virtuoso pianists.</p>
+                <h2>Sant Valentin Collection 2025 [RÍGIDO]</h2>
+                <p class="meta">925 silver</p>
+                <p>Padlock and Perfume flask pendant.</p>
             </div>
             
             <div class="image-gallery">
