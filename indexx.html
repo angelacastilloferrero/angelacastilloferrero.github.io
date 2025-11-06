@@ -15,13 +15,12 @@
         body {
             overflow-x: hidden;
             /* CAMBIOS APLICADOS PARA EL FONDO Y TEXTO BLANCO */
-            background-image: url('assets/bg-b01.png'); /* ⬅️ Establece la imagen de fondo */
-            background-attachment: fixed; /* ⬅️ Mantiene el fondo fijo al hacer scroll */
+            background-image: url('assets/bg-b01.png');
+            background-attachment: fixed;
             background-size: cover;
             background-repeat: no-repeat;
             
-            color: white; /* ⬅️ Color del texto principal blanco */
-            /* FIN DE CAMBIOS */
+            color: white; /* Color del texto principal blanco */
 
             font-family: Arial, sans-serif;
             line-height: 1.5;
@@ -39,8 +38,7 @@
 
         /* ESTILOS DE ENLACES */
         a {
-            /* color: #0000ff; ⬅️ CAMBIO: El color azul original */
-            color: #ffffff; /* ⬅️ Nuevo color blanco para los enlaces */
+            color: #ffffff; /* Nuevo color blanco para los enlaces */
             letter-spacing: -0.3px;
             text-decoration: underline;
         }
@@ -70,8 +68,7 @@
         
         /* Contacto en una línea */
         .contact-info p {
-             /* color: #0000ff; ⬅️ CAMBIO: El color azul original */
-             color: #ffffff; /* ⬅️ Nuevo color blanco para esta información de contacto */
+             color: #ffffff; /* Nuevo color blanco para esta información de contacto */
              font-size: 1em;
              margin: 0;
              white-space: nowrap; 
@@ -112,9 +109,65 @@
         /* ESTILO PARA LA LÍNEA DIVISORIA */
         hr.project-divider {
             border: none;
-            /* border-top: 1px solid #ccc; ⬅️ CAMBIO: La línea divisoria original era gris */
-            border-top: 1px solid #ffffff; /* ⬅️ Nueva línea divisoria blanca */
+            border-top: 1px solid #ffffff; /* Nueva línea divisoria blanca */
             margin: 40px 0;
+        }
+
+        /* ⬅️ CAMBIOS CSS PARA EL BOTÓN EN LA PARTE SUPERIOR CENTRAL */
+        #mode-toggle-container {
+            /* Contenedor para centrar el botón */
+            text-align: center; /* Centra el contenido inline/inline-block */
+            margin: 20px 0; /* Añade margen arriba y abajo para separarlo */
+        }
+        
+        #mode-toggle {
+            /* Quitamos la posición fixed que tenía antes */
+            /* position: fixed; */ 
+            /* bottom: 20px; */
+            /* right: 20px; */
+
+            display: inline-block; /* Permite centrarlo con text-align: center; */
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente (modo oscuro) */
+            color: white; /* Color del texto del botón */
+            border: 1px solid white; /* Borde sutil */
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.5em; /* Tamaño del texto del botón */
+            z-index: 1000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #mode-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* NUEVA CLASE PARA EL MODO CLARO */
+        .light-mode {
+            background-image: url('assets/bg-m01.png') !important;
+            color: black !important;
+        }
+
+        /* Ajustes de color en modo claro */
+        .light-mode a {
+            color: #0000ff !important;
+        }
+        .light-mode .contact-info p {
+            color: #0000ff !important;
+        }
+        .light-mode hr.project-divider {
+            border-top: 1px solid #ccc !important;
+        }
+
+        /* Ajustar el botón en modo claro */
+        .light-mode #mode-toggle {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: black;
+            border: 1px solid black;
+        }
+
+        .light-mode #mode-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.4);
         }
         
     </style>
@@ -137,13 +190,18 @@
             </div>
         </header>
         
+        <div id="mode-toggle-container">
+            <button id="mode-toggle" aria-label="Cambiar modo oscuro/claro">
+                ⏾⋆.˚
+            </button>
+        </div>
         <hr class="project-divider"> 
 
         <section class="project-section">
             <div class="project-details">
                 <p>Twist Capsule <i>[PDPAOLA]</i></p>
                 <p class="meta">Crafted in 18K gold plated 925 silver, hand-set cubic zirconia pavé/sodalite gemstone</p>
-                <p>Collection conceptualization. Concept Development. Material Selection. Technical Specifications. Feedback Integration. Coordination and supervision of the project. Definition of Quality Standards.</p>
+                <p>Collection conceptualization. Concept Development. Material Selection. Technical Specifications. Feedback Integration. Goordination and supervision of the project. Definition of Quality Standards.</p>
             </div>
             
             <div class="image-gallery">
@@ -176,5 +234,33 @@
     <footer class="footer container">
         <p class="last-updated" style="text-align: right;">last updated: 03/nov/25</p>
     </footer>
+
+    <script>
+        // Obtener el botón y el cuerpo de la página
+        const toggleButton = document.getElementById('mode-toggle');
+        const bodyElement = document.body;
+        const originalText = '⏾⋆.˚';
+        const newText = '⋆⁺₊⋆ ☀︎ ⋆⁺₊⋆';
+
+        /**
+         * Función para alternar entre el modo oscuro (bg-b01) y el modo claro (bg-m01).
+         */
+        function toggleMode() {
+            // 1. Alterna la clase 'light-mode' en el cuerpo
+            bodyElement.classList.toggle('light-mode');
+
+            // 2. Cambia el texto del botón según el modo activo
+            if (bodyElement.classList.contains('light-mode')) {
+                // Si ahora estamos en modo claro, mostrar el sol
+                toggleButton.innerHTML = newText;
+            } else {
+                // Si volvemos al modo oscuro, mostrar el modo oscuro
+                toggleButton.innerHTML = originalText;
+            }
+        }
+
+        // 3. Asignar la función al evento 'click' del botón
+        toggleButton.addEventListener('click', toggleMode);
+    </script>
 </body>
 </html>
