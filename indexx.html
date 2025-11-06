@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+
+    <title>ANGELA QUÉ HACES</title>
+
+    <link rel="icon" href="assets/Iconfactory-Copland-5-A-rose-for-K..32.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        /* CONFIGURACIÓN BASE Y ANCHO TOTAL */
+        body {
+            overflow-x: hidden;
+            /* CAMBIOS APLICADOS PARA EL FONDO Y TEXTO BLANCO */
+            background-image: url('assets/bg-b01.png'); /* ⬅️ Establece la imagen de fondo */
+            background-attachment: fixed; /* ⬅️ Mantiene el fondo fijo al hacer scroll */
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+            color: white; /* ⬅️ Color del texto principal blanco */
+            /* FIN DE CAMBIOS */
+
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            font-size: 1em;
+            margin: 15;
+        }
+
+        /* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
+        .container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0px 0;
+            padding: 10px; /* Separación de los bordes laterales de la ventana */
+        }
+
+        /* ESTILOS DE ENLACES */
+        a {
+            /* color: #0000ff; ⬅️ CAMBIO: El color azul original */
+            color: #ffffff; /* ⬅️ Nuevo color blanco para los enlaces */
+            letter-spacing: -0.3px;
+            text-decoration: underline;
+        }
+        
+        .wavy-underline {
+            text-decoration-style: wavy;
+        }
+        
+        /* CABECERA Y CONTACTO (ALINEACIÓN DERECHA) */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        /* Quitamos el margen a los párrafos de la cabecera */
+        .main-info p {
+            margin: 0;
+        }
+
+        .contact-info {
+            text-align: right;
+            line-height: 1.5;
+        }
+        
+        /* Contacto en una línea */
+        .contact-info p {
+             /* color: #0000ff; ⬅️ CAMBIO: El color azul original */
+             color: #ffffff; /* ⬅️ Nuevo color blanco para esta información de contacto */
+             font-size: 1em;
+             margin: 0;
+             white-space: nowrap; 
+        }
+        
+        /* SECCIONES DE PROYECTO */
+        .project-section {
+            margin-bottom: 50px;
+        }
+
+        /* CLAVE: Elimina el margen de los párrafos en los detalles del proyecto */
+        .project-details p {
+            margin: 0; 
+        }
+
+        /* Estilo para el título de proyecto (h2) */
+        .project-details h2 {
+            font-size: 1.5em; 
+            margin: 0 0 0.5em 0; /* Un poco de margen solo abajo del título, si lo deseas */
+        }
+
+        /* GALERÍA DE IMÁGENES (INCRUSTADAS Y EN FILA) */
+        .image-gallery {
+            display: flex;
+            gap: 5px; 
+            margin-top: 20px;
+            overflow-x: auto; 
+        }
+        
+        .image-gallery img {
+            height: 640px; 
+            width: auto; 
+            display: block;
+            flex-shrink: 0; 
+            object-fit: cover; 
+        }
+        
+        /* ESTILO PARA LA LÍNEA DIVISORIA */
+        hr.project-divider {
+            border: none;
+            /* border-top: 1px solid #ccc; ⬅️ CAMBIO: La línea divisoria original era gris */
+            border-top: 1px solid #ffffff; /* ⬅️ Nueva línea divisoria blanca */
+            margin: 40px 0;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <main class="container">
+
+        <header class="header">
+            <div class="main-info">
+                <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
+                <p>Jewelry / Fashion Accessories designer</p>
+                <p>Based in Barcelona</p>
+                <p>Full PDF available upon <u class="wavy-underline">request</u></p>
+            </div>
+
+            <div class="contact-info">
+                <p>castillofereroangela(at)gmail(dot)com +34 686 646 684</p>
+            </div>
+        </header>
+        
+        <hr class="project-divider"> 
+
+        <section class="project-section">
+            <div class="project-details">
+                <p>Twist Capsule <i>[PDPAOLA]</i></p>
+                <p class="meta">Crafted in 18K gold plated 925 silver, hand-set cubic zirconia pavé/sodalite gemstone</p>
+                <p>Collection conceptualization. Concept Development. Material Selection. Technical Specifications. Feedback Integration. Coordination and supervision of the project. Definition of Quality Standards.</p>
+            </div>
+            
+            <div class="image-gallery">
+                <img src="https://d2w9rnfcy7mm78.cloudfront.net/40812628/original_172a35df3b3170e2a010826f4a9fe9b0.png?1762184347?bc=0" alt="Imagen del proyecto Twist Capsule 1">
+                <img src="https://d2w9rnfcy7mm78.cloudfront.net/40812625/original_85f18373dedff59799d870842540b485.png?1762184345?bc=0" alt="Imagen del proyecto Twist Capsule 2">
+                <img src="https://d2w9rnfcy7mm78.cloudfront.net/40812631/original_19f7e92dfe38cfa2b98cf28f4ba0f9c4.png?1762184353?bc=0" alt="Imagen del proyecto Twist Capsule 3">
+            </div>
+        </section>
+
+        <hr class="project-divider"> 
+
+        <section class="project-section">
+            <div class="project-details">
+                <p>Sant Valentin Collection 2025 <i>[RÍGIDO]</i></p>
+                <p class="meta">925 silver</p>
+                <p>Padlock and Perfume flask pendant.</p>
+            </div>
+            
+            <div class="image-gallery">
+                <img src="placeholder-5.jpg" alt="Imagen 1">
+                <img src="placeholder-6.jpg" alt="Imagen 2">
+                <img src="placeholder-7.jpg" alt="Imagen 3">
+                <img src="placeholder-8.jpg" alt="Imagen 4">
+                <img src="placeholder-9.jpg" alt="Imagen 5">
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer container">
+        <p class="last-updated" style="text-align: right;">last updated: 03/nov/25</p>
+    </footer>
+</body>
+</html>
