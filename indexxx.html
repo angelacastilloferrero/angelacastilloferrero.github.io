@@ -23,8 +23,8 @@
             line-height: 1.5;
             font-size: 1em;
             margin: 15;
-            /* Añadimos un padding/margen inferior para que las ventanas no se corten al final */
-            padding-bottom: 500px;
+            /* Se necesita un gran padding/margen inferior para que las ventanas puedan moverse hasta abajo */
+            padding-bottom: 2000px; 
         }
 
         /* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
@@ -71,36 +71,6 @@
              white-space: nowrap; 
         }
         
-        /* SECCIONES DE PROYECTO */
-        .project-section {
-            margin-bottom: 50px;
-        }
-
-        .project-details p {
-            margin: 0; 
-        }
-
-        .project-details h2 {
-            font-size: 1.5em; 
-            margin: 0 0 0.5em 0; 
-        }
-
-        /* GALERÍA DE IMÁGENES (INCRUSTADAS Y EN FILA) */
-        .image-gallery {
-            display: flex;
-            gap: 5px; 
-            margin-top: 20px;
-            overflow-x: auto; 
-        }
-        
-        .image-gallery img {
-            height: 640px; 
-            width: auto; 
-            display: block;
-            flex-shrink: 0; 
-            object-fit: cover; 
-        }
-        
         /* ESTILO PARA LA LÍNEA DIVISORIA */
         hr.project-divider {
             border: none;
@@ -116,25 +86,27 @@
             margin-bottom: 20px;
         }
         
-        /* Estilo para las ventanas flotantes */
         .window {
-            /* CLAVE: Permite moverlas libremente */
+            /* Permite moverlas libremente */
             position: absolute; 
             
-            /* Les da un tamaño inicial. Puedes ajustarlo */
+            /* Les da un tamaño inicial. */
             width: 300px; 
+            min-width: 150px; /* Tamaño mínimo */
+            min-height: 100px;
             
             background-color: #f0f0f0; 
             border: 1px solid #333;
             box-shadow: 5px 5px 0px #888; 
-            z-index: 100; /* Apilamiento base */
+            z-index: 100;
             
-            /* Transición suave para cuando se eleva al hacer clic */
-            transition: z-index 0.1s ease;
+            /* Desactiva el cambio de tamaño por CSS, lo manejamos con el JS */
+            resize: none; 
+            overflow: hidden; /* Oculta el contenido si es muy grande */
         }
 
         .window-header {
-            /* CLAVE: Área que se puede arrastrar */
+            /* Área que se puede arrastrar */
             cursor: move; 
             
             background-color: #ccc;
@@ -147,18 +119,32 @@
 
         .window-body {
             padding: 5px;
+            height: calc(100% - 31px); /* Resta la altura del header (aprox 31px) */
+            overflow: hidden;
         }
 
         .window-body img {
             /* La imagen ocupa todo el cuerpo de la ventana */
             display: block;
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            height: 100%; /* CLAVE: Para que se redimensione dentro del body */
+            object-fit: contain; /* Para que la imagen se ajuste sin cortarse */
+        }
+        
+        /* Asa para redimensionar */
+        .resize-handle {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 15px;
+            height: 15px;
+            background: #333;
+            cursor: nwse-resize; /* Cursor de redimensionamiento */
+            z-index: 10;
         }
 
-        /* Clase para elevar la ventana que se está moviendo (para que siempre esté encima) */
-        .active-drag {
+        /* Clase para elevar la ventana que se está moviendo */
+        .active-drag, .active-resize {
             z-index: 1000;
         }
         /* ============================================== */
@@ -183,72 +169,43 @@
             </div>
         </header>
         
+        <hr class="project-divider">
+        
         <h2 class="highlights-title">Highlights Lately</h2>
         
         <div class="highlights-container">
             
-            <div class="highlight-item window" id="item-1" style="top: 200px; left: 20px;">
+            <div class="highlight-item window" id="item-1" style="top: 200px; left: 20px; height: 400px; width: 300px;">
                 <div class="window-header">Twist Capsule I</div>
                 <div class="window-body">
                     <img 
                         src="https://d2w9rnfcy7mm78.cloudfront.net/40812628/original_172a35df3b3170e2a010826f4a9fe9b0.png?1762184347?bc=0" 
                         alt="Destacado 1: Twist Capsule">
                 </div>
+                <div class="resize-handle"></div>
             </div>
 
-            <div class="highlight-item window" id="item-2" style="top: 100px; left: 35%;">
+            <div class="highlight-item window" id="item-2" style="top: 100px; left: 35%; height: 500px; width: 380px;">
                 <div class="window-header">Twist Capsule II</div>
                 <div class="window-body">
                     <img 
                         src="https://d2w9rnfcy7mm78.cloudfront.net/40812625/original_85f18373dedff59799d870842540b485.png?1762184345?bc=0" 
                         alt="Destacado 2: Twist Capsule">
                 </div>
+                <div class="resize-handle"></div>
             </div>
 
-            <div class="highlight-item window" id="item-3" style="top: 300px; left: 65%;">
+            <div class="highlight-item window" id="item-3" style="top: 300px; left: 65%; height: 350px; width: 250px;">
                 <div class="window-header">Twist Capsule III</div>
                 <div class="window-body">
                     <img 
                         src="https://d2w9rnfcy7mm78.cloudfront.net/40812631/original_19f7e92dfe38cfa2b98cf28f4ba0f9c4.png?1762184353?bc=0" 
                         alt="Destacado 3: Twist Capsule">
                 </div>
+                <div class="resize-handle"></div>
             </div>
         </div>
-        <hr class="project-divider"> 
-
-        <section class="project-section">
-            <div class="project-details">
-                <p>Twist Capsule <i>[PDPAOLA]</i></p>
-                <p class="meta">Crafted in 18K gold plated 925 silver, hand-set cubic zirconia pavé/sodalite gemstone</p>
-                <p>Collection conceptualization. Concept Development. Material Selection. Technical Specifications. Feedback Integration. Goordination and supervision of the project. Definition of Quality Standards.</p>
-            </div>
-            
-            <div class="image-gallery">
-                <img src="https://d2w9rnfcy7mm78.cloudfront.net/40812628/original_172a35df3b3170e2a010826f4a9fe9b0.png?1762184347?bc=0" alt="Imagen del proyecto Twist Capsule 1">
-                <img src="https://d2w9rnfcy7mm78.cloudfront.net/40812625/original_85f18373dedff59799d870842540b485.png?1762184345?bc=0" alt="Imagen del proyecto Twist Capsule 2">
-                <img src="https://d2w9rnfcy7mm78.cloudfront.net/40812631/original_19f7e92dfe38cfa2b98cf28f4ba0f9c4.png?1762184353?bc=0" alt="Imagen del proyecto Twist Capsule 3">
-            </div>
-        </section>
-
-        <hr class="project-divider"> 
-
-        <section class="project-section">
-            <div class="project-details">
-                <p>Sant Valentin Collection 2025 <i>[RÍGIDO]</i></p>
-                <p class="meta">925 silver</p>
-                <p>Padlock and Perfume flask pendant.</p>
-            </div>
-            
-            <div class="image-gallery">
-                <img src="placeholder-5.jpg" alt="Imagen 1">
-                <img src="placeholder-6.jpg" alt="Imagen 2">
-                <img src="placeholder-7.jpg" alt="Imagen 3">
-                <img src="placeholder-8.jpg" alt="Imagen 4">
-                <img src="placeholder-9.jpg" alt="Imagen 5">
-            </div>
-        </section>
-
-    </main>
+        </main>
 
     <footer class="footer container">
         <p class="last-updated" style="text-align: right;">last updated: 03/nov/25</p>
@@ -258,113 +215,150 @@
         const draggableElements = document.querySelectorAll('.window');
         
         let activeItem = null; 
-        let currentX; 
-        let currentY; 
-        let initialX; 
-        let initialY; 
-        let xOffset = 0; 
-        let yOffset = 0;
-        let highestZIndex = 100; // Z-index inicial
+        let isResizing = false; // Nueva variable para controlar la redimensión
+        
+        let currentX, currentY; 
+        let initialX, initialY; 
+        let xOffset = 0, yOffset = 0;
+        
+        let initialWidth, initialHeight; // Variables para la redimensión
 
-        // 1. Recorre todos los elementos y añade los escuchadores de eventos
+        let highestZIndex = 100;
+
+        // 1. Configuración de escuchadores de eventos
         draggableElements.forEach(item => {
-            // El encabezado es el área donde se puede hacer clic para arrastrar
             const header = item.querySelector('.window-header');
+            const resizeHandle = item.querySelector('.resize-handle');
             
+            // Arrastre (Header)
             if (header) {
-                // Eventos de ratón
                 header.addEventListener('mousedown', dragStart);
-                // Eventos táctiles
                 header.addEventListener('touchstart', dragStart); 
             }
-            // Evento para elevar la ventana al hacer clic en cualquier parte de ella
+            
+            // Redimensión (Handle)
+            if (resizeHandle) {
+                resizeHandle.addEventListener('mousedown', resizeStart);
+                resizeHandle.addEventListener('touchstart', resizeStart);
+            }
+
+            // Elevar al hacer clic
             item.addEventListener('mousedown', elevateWindow);
             item.addEventListener('touchstart', elevateWindow);
         });
 
-        // Añade los escuchadores de eventos al documento para el movimiento y fin del arrastre
+        // Eventos globales en el documento
         document.addEventListener('mouseup', dragEnd);
         document.addEventListener('touchend', dragEnd); 
         document.addEventListener('mousemove', drag);
         document.addEventListener('touchmove', drag); 
         
-        // Función para elevar la ventana clicada al z-index más alto
+        // Función para elevar la ventana clicada
         function elevateWindow(e) {
-            // Encuentra la ventana (si el clic fue en el header o el body)
             const clickedWindow = e.target.closest('.window');
             if (clickedWindow) {
-                // Incrementa el z-index y lo aplica a la ventana
                 highestZIndex++;
                 clickedWindow.style.zIndex = highestZIndex;
             }
         }
+        
+        /* ==================== FUNCIONES DE ARRASTRE ==================== */
 
-
-        // 2. Función que se ejecuta al iniciar el arrastre (clic o toque)
         function dragStart(e) {
             e.preventDefault(); 
+            isResizing = false; // Asegura que no estemos en modo redimensión
             
             const isTouch = e.type.includes('touch');
             const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
             const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
 
-            // El elemento activo es la ventana (el padre del header)
             activeItem = this.closest('.window');
+            activeItem.classList.add('active-drag'); // Estilo de arrastre
             
-            // Reajusta las coordenadas del desplazamiento si se había movido antes
+            // Reajusta las coordenadas del desplazamiento
             xOffset = activeItem.offsetLeft;
             yOffset = activeItem.offsetTop;
 
-            // Calcula la posición inicial del ratón/dedo en relación al desplazamiento del elemento
             initialX = eventClientX - xOffset;
             initialY = eventClientY - yOffset;
+        }
+        
+        /* ==================== FUNCIONES DE REDIMENSIÓN ==================== */
+
+        function resizeStart(e) {
+            e.preventDefault();
             
-            // Eleva la ventana al empezar el arrastre
-            highestZIndex++;
-            activeItem.style.zIndex = highestZIndex;
+            isResizing = true;
+            const isTouch = e.type.includes('touch');
+            const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
+            const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
+
+            activeItem = this.closest('.window');
+            activeItem.classList.add('active-resize'); // Estilo de redimensión
+            
+            // Posición inicial del ratón
+            initialX = eventClientX;
+            initialY = eventClientY;
+
+            // Dimensiones iniciales del elemento
+            initialWidth = activeItem.offsetWidth;
+            initialHeight = activeItem.offsetHeight;
         }
 
-        // 3. Función que se ejecuta durante el arrastre
+
+        /* ==================== FUNCIÓN DE MOVIMIENTO (DRAG/RESIZE) ==================== */
+
         function drag(e) {
-            if (activeItem) {
-                e.preventDefault();
+            if (!activeItem) return;
+            e.preventDefault();
 
-                const isTouch = e.type.includes('touch');
-                const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
-                const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
+            const isTouch = e.type.includes('touch');
+            const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
+            const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
 
-                // Calcula la nueva posición del ratón
+            if (isResizing) {
+                // Modo Redimensión
+                const deltaX = eventClientX - initialX;
+                const deltaY = eventClientY - initialY;
+
+                // Calcula el nuevo tamaño, respetando el mínimo
+                const newWidth = Math.max(initialWidth + deltaX, parseInt(activeItem.style.minWidth) || 150);
+                const newHeight = Math.max(initialHeight + deltaY, parseInt(activeItem.style.minHeight) || 100);
+
+                activeItem.style.width = newWidth + 'px';
+                activeItem.style.height = newHeight + 'px';
+
+            } else {
+                // Modo Arrastre
                 currentX = eventClientX - initialX;
                 currentY = eventClientY - initialY;
 
-                // Aplica la nueva posición al elemento (usando CSS 'translate')
                 setTranslate(currentX, currentY, activeItem);
             }
         }
 
-        // 4. Función que se ejecuta al finalizar el arrastre
+
+        /* ==================== FUNCIÓN DE FINALIZACIÓN (DRAG/RESIZE) ==================== */
+
         function dragEnd(e) {
-            if (activeItem) {
-                
-                // Aplica la posición final como 'top' y 'left'
+            if (!activeItem) return;
+
+            activeItem.classList.remove('active-drag', 'active-resize');
+
+            if (!isResizing) {
+                // Modo Arrastre: aplica la posición final
                 activeItem.style.left = currentX + 'px';
                 activeItem.style.top = currentY + 'px';
-                
-                // Resetea el transform para evitar desplazamientos extra
                 activeItem.style.transform = 'translate3d(0, 0, 0)'; 
-
-                // Resetea las variables de arrastre
-                initialX = currentX;
-                initialY = currentY;
-                xOffset = 0;
-                yOffset = 0;
-                activeItem = null;
             }
+            
+            // Resetea las variables de control
+            activeItem = null;
+            isResizing = false;
         }
 
-        // 5. Función de utilidad para aplicar la posición con transform
+        // Función de utilidad para aplicar la posición con transform
         function setTranslate(xPos, yPos, el) {
-            // Usa translate3d para un mejor rendimiento de la GPU
             el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
         }
     </script>
