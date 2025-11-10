@@ -18,9 +18,9 @@
             background-size: cover;
             background-repeat: no-repeat;
 
-            /* **CAMBIO SOLICITADO: Tipografía a 11pt** */
+            /* Tipografía a 11pt */
             font-family: "Times New Roman", Times, serif;
-            font-size: 11pt; /* <--- Ajustado a 11pt */
+            font-size: 11pt;
             line-height: 1.5;
 
             /* Margen en ambos lados para imitar el padding: 15px en body */
@@ -50,7 +50,14 @@
             justify-content: space-between;
             align-items: flex-start;
             width: 100%;
-            margin-bottom: 20px; /* Reducido para hacer espacio */
+            margin-bottom: 20px;
+        }
+
+        /* Contenedor principal de la izquierda (info + botón) */
+        .main-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .main-info p {
@@ -78,20 +85,19 @@
         }
 
         /* === CONTENEDOR PARA EL BOTÓN Y EL HIGHLIGHTS === */
-        /* **CAMBIO SOLICITADO: Highlights en la misma línea del botón y centrado** */
+        /* Highlights centrado, en la misma línea del botón (aunque el botón esté reubicado en .header) */
         .button-highlight-bar {
             display: flex;
             align-items: center;
-            justify-content: center; /* Centra el contenido horizontalmente */
+            justify-content: center;
             width: 100%;
-            margin-bottom: 25px; /* Espacio debajo del botón/título */
+            margin-bottom: 25px;
         }
-        
-        /* Contenedor del botón para mantenerlo alineado con el título */
+
         .main-info-button {
-             display: flex; /* Para permitir justificación */
+             display: flex;
              align-items: center;
-             justify-content: center; /* Centra el botón dentro de su contenedor */
+             justify-content: center;
              width: 100%;
         }
 
@@ -106,9 +112,9 @@
             cursor: pointer;
             display: inline-flex;
             font: inherit;
-            justify-content: left;
             margin: 0;
-            padding: 8px 15px;
+            /* Botón más pequeño */
+            padding: 5px 10px;
             text-decoration: none;
             white-space: nowrap;
             transition: background-color 0.2s;
@@ -124,21 +130,30 @@
             background-color: #A0522D;
         }
 
+        /* Contenedor para alinear el botón a la derecha */
+        .button-right-align {
+            width: 100%;
+            text-align: right; /* Alinea el botón a la derecha */
+            margin-top: 5px;
+        }
+
         /* === ESTILOS PARA TÍTULO Y TEXTO CENTRAL === */
         .highlights-title {
             /* Título Highlights Lately */
             font-size: 1.2em;
             text-decoration: underline;
             text-align: center;
-            margin: 0 20px; /* Espacio para que el texto centrado no toque el botón */
+            margin: 0 20px;
             white-space: nowrap;
         }
 
         .about-container {
-             /* **CAMBIO SOLICITADO: Cuadro de texto About me** */
-             border: 2px solid black; /* Borde de 2px negro */
+             /* Cuadro de texto About me */
+             /* Borde a 0.5px */
+             border: 0.5px solid black;
              padding: 15px;
-             margin: 10px auto 40px auto;
+             /* Más centrado hacia abajo */
+             margin: 100px auto 40px auto;
              width: 80%;
              max-width: 600px;
              background-color: white;
@@ -149,24 +164,23 @@
 
         .about-text {
             /* Texto About me! */
-            /* Se elimina la alineación centrada del párrafo */
-            text-align: justify; /* **CAMBIO SOLICITADO: Justificado a izquierda y derecha** */
+            text-align: justify; /* Justificado */
             margin: 0;
-            font-size: 1em; /* 1em aquí es 11pt, basado en el body */
-            color: black; /* **CAMBIO SOLICITADO: Texto en negro** */
+            font-size: 1em;
+            color: black;
             line-height: 1.5;
         }
-        
+
         .highlight-blue {
-             /* **CAMBIO SOLICITADO: Highlight en azul marino** */
-             background-color: #000080; /* Azul Marino */
-             color: white; /* Texto blanco para mejor contraste */
+             /* Color de highlight igual al de los enlaces (#0000ff) */
+             background-color: #0000ff;
+             color: white;
              padding: 2px 4px;
-             line-height: 1; /* Para que no afecte el interlineado del párrafo */
+             line-height: 1;
              box-decoration-break: clone;
         }
 
-        /* === ESTILOS PARA LAS VENTANAS FLOTANTES === (Resto sin cambios significativos en CSS) */
+        /* === ESTILOS PARA LAS VENTANAS FLOTANTES === */
         .window {
             position: absolute;
             min-width: 150px;
@@ -185,7 +199,6 @@
             flex-direction: column;
         }
 
-        /* Contenedor del cuerpo (contenido de la imagen) */
         .window-body {
             padding: 0;
             flex-grow: 1;
@@ -200,7 +213,6 @@
             object-fit: cover;
         }
 
-        /* TITULO DE VENTANA - FOOTER */
         .window-footer {
             cursor: move;
             background-color: #fff;
@@ -215,7 +227,6 @@
             text-overflow: ellipsis;
         }
 
-        /* Estilos del texto del footer */
         .filename-text {
             color: #8B4513;
             font-weight: bold;
@@ -227,7 +238,6 @@
             font-style: italic;
         }
 
-        /* Asa para redimensionar */
         .resize-handle {
             position: absolute;
             bottom: 0;
@@ -252,11 +262,14 @@
         <header class="header">
             <div class="main-info">
                 <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
-                <br>
                 Jewelry / Fashion Accessories designer
-                <br>
                 Based in Barcelona
                 <br>
+                <div class="button-right-align">
+                    <button class="button button-primary" onclick="alert(añadir correo?)">
+                        Full Portfolio available upon request
+                    </button>
+                </div>
             </div>
 
             <div class="contact-info">
@@ -265,24 +278,22 @@
         </header>
 
         <div class="button-highlight-bar">
-            <div class="main-info-button">
-                 <button class="button button-primary" onclick="alert(añadir correo?)">
-                    Full Portfolio available upon request
-                 </button>
-             </div>
+             <div class="main-info-button">
+                 </div>
              <h2 class="highlights-title" id="highlights-title">Highlights Lately</h2>
-             <div style="width: 100%;"></div> </div>
+             <div style="width: 100%;"></div>
+        </div>
 
         <div class="about-container">
             <p class="about-text" id="about-me-text">
-                Ángela es una diseñadora centrada en crear narrativas a través de la cultura material.
-                Su trabajo explora la intersección entre la artesanía digital y las técnicas
-                tradicionales, creando accesorios de moda con un enfoque único.
+                Angela is a designer focused on creating narratives through material culture.
+                Her work explores the intersection between digital craftsmanship and traditional
+                techniques, creating fashion accessories with a unique approach.
                 <br><br>
-                A lo largo de su carrera ha trabajado en <span class="highlight-blue">proyectos innovadores de joyería paramétrica</span>
-                y ha participado en <span class="highlight-blue">exposiciones internacionales de diseño</span>.
-                Su fascinación por los materiales y su transformación la impulsa a buscar
-                constantemente nuevas formas de expresión.
+                Throughout her career, she has worked on <span class="highlight-blue">innovative parametric jewelry projects</span>
+                and has participated in <span class="highlight-blue">international design exhibitions</span>.
+                Her fascination with materials and their transformation drives her to constantly
+                seek new forms of expression.
             </p>
         </div>
 
@@ -416,8 +427,7 @@
             let randomTop, randomLeft;
 
             if (currentLeft === 0 && currentTop === 0) {
-                 // **CAMBIO SOLICITADO: Posición inicial completamente aleatoria**
-                // Si la posición no está definida, genera una aleatoria dentro de los límites
+                 // Posición inicial completamente aleatoria
                  randomTop = Math.random() * (maxTop - minY) + minY;
                  randomLeft = Math.random() * (maxLeft - 15) + 15;
             } else {
@@ -425,7 +435,7 @@
                  randomTop = Math.min(Math.max(currentTop, minY), maxTop);
                  randomLeft = Math.min(Math.max(currentLeft, 15), maxLeft);
             }
-           
+
             // Aplicar la posición
             windowElement.style.top = randomTop + 'px';
             windowElement.style.left = randomLeft + 'px';
@@ -457,25 +467,24 @@
             } else if (img) {
                 img.onload = loadHandler;
             } else {
-                // Si por alguna razón no hay imagen (debería haberla)
                 setInitialDimensions(windowElement, null);
                 randomizeWindowPosition(windowElement);
             }
         }
 
         function setInitialDimensions(windowElement, img) {
-             // **CAMBIO SOLICITADO: Tamaño inicial aleatorio (pero proporcional)**
+            // Tamaño inicial aleatorio (pero proporcional)
             const MIN_WIDTH = 200;
             const MAX_WIDTH = 400;
 
-            // Generar un ancho aleatorio entre MIN_WIDTH y MAX_WIDTH
+            // Generar un ancho aleatorio entre 200px y 400px
             const randomWidth = Math.random() * (MAX_WIDTH - MIN_WIDTH) + MIN_WIDTH;
 
             let ratio = 1;
             if (img && img.naturalWidth && img.naturalHeight) {
                 ratio = img.naturalWidth / img.naturalHeight;
             }
-            
+
             const targetWidth = randomWidth;
             const targetHeight = targetWidth / ratio;
 
@@ -562,7 +571,7 @@
             initialWidth = activeItem.offsetWidth;
             initialHeight = activeItem.offsetHeight;
 
-            initialRatio = parseFloat(activeItem.getAttribute('data-aspect-ratio')) || (initialWidth / (initialHeight - FOOTER_HEIGHT)); // Ajuste de ratio
+            initialRatio = parseFloat(activeItem.getAttribute('data-aspect-ratio')) || (initialWidth / (initialHeight - FOOTER_HEIGHT));
         }
 
 
@@ -576,20 +585,18 @@
             const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
             const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
 
-            const viewportWidth = window.innerWidth - 30; // Body margin
-            const viewportHeight = window.innerHeight - 30; // Body margin
+            const viewportWidth = window.innerWidth - 30; // Body margin (15px * 2)
+            const viewportHeight = window.innerHeight - 30; // Body margin (15px * 2)
             const itemWidth = activeItem.offsetWidth;
             const itemHeight = activeItem.offsetHeight;
             const MIN_LEFT = 15;
-            const MIN_TOP = 15; // Margen superior mínimo
+            const MIN_TOP = 15;
 
             if (isResizing) {
                 const deltaX = eventClientX - initialX;
                 const deltaY = eventClientY - initialY;
 
                 let newWidth, newBodyHeight;
-
-                // Lógica de redimensión sin cambios (sigue manteniendo la proporción)
 
                 if (Math.abs(deltaX) > Math.abs(deltaY)) {
                     // Guiar por el ancho
@@ -610,7 +617,7 @@
                 let newHeight = newBodyHeight + FOOTER_HEIGHT;
 
                 if (newWidth >= 150 && newHeight >= 100) {
-                     // **CAMBIO: Limitar el tamaño de redimensión para no salirse de la web**
+                     // Limitar el tamaño de redimensión para no salirse de la web
                     let maxPossibleWidth = viewportWidth - (parseFloat(activeItem.style.left) || 0);
                     let maxPossibleHeight = viewportHeight - (parseFloat(activeItem.style.top) || 0);
 
@@ -626,7 +633,6 @@
                          newWidth = newBodyHeight * initialRatio;
                     }
 
-
                     activeItem.style.width = newWidth + 'px';
                     activeItem.style.height = newHeight + 'px';
                     updateDimensionsText(activeItem);
@@ -637,9 +643,7 @@
                 currentX = eventClientX - xOffset;
                 currentY = eventClientY - yOffset;
 
-                // **CAMBIO SOLICITADO: Asegurarse de que no se salga de la web**
-
-                // Calcular límites
+                // Asegurarse de que no se salga de la web
                 const maxX = viewportWidth - itemWidth;
                 const maxY = viewportHeight - itemHeight;
 
@@ -667,15 +671,13 @@
 
         // Llamada inicial para asegurar que todas las imágenes se inicialicen
         window.addEventListener('load', () => {
-             // Asegura que las imágenes y dimensiones se carguen antes de posicionar
              draggableElements.forEach(item => initializeWindow(item));
         });
 
         // Al redimensionar la ventana del navegador, ajusta la posición de las ventanas abiertas.
         window.addEventListener('resize', () => {
             draggableElements.forEach(item => {
-                // Llama a randomizeWindowPosition para reajustar los límites (asegura que no se salgan)
-                randomizeWindowPosition(item);
+                randomizeWindowPosition(item); // Reajusta los límites
             });
         });
     </script>
