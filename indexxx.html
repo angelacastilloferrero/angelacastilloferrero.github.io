@@ -68,12 +68,10 @@
             text-align: left; 
         }
 
-        /* Salto de línea solicitado entre párrafos */
-        .main-info br {
-            display: block;
-            content: "";
-            margin-bottom: 5px;
-        }
+        /*
+        * REGLA ELIMINADA: La regla .main-info br { ... margin-bottom: 5px; } ha sido eliminada.
+        * Ahora el <br> se comporta como un salto de línea normal sin espacio extra.
+        */
 
         /* Contenedor de contacto y botón (derecha) */
         .contact-info {
@@ -236,8 +234,10 @@
         <header class="header">
             <div class="main-info">
                 <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
-                <p>ewelry / Fashion Accessories designer
-                Based in Barcelona</p>J
+                <br>
+                Jewelry / Fashion Accessories designer
+                <br>
+                Based in Barcelona
             </div>
 
             <div class="contact-info">
@@ -253,7 +253,7 @@
                 Angela is a designer focused on creating narratives through material culture.
                 Her work explores the intersection between digital craftsmanship and traditional
                 techniques, creating fashion accessories with a unique approach.
-                <br>
+                <br><br>
                 Throughout her career, she has worked on <span class="highlight-blue">innovative parametric jewelry projects</span>
                 and has participated in <span class="highlight-blue">international design exhibitions</span>.
                 Her fascination with materials and their transformation drives her to constantly
@@ -378,10 +378,10 @@
             let baseX = aboutCenterX - (elementWidth / 2);
             let baseY = aboutCenterY - (elementHeight / 2);
 
-            // 3. Definir un rango de dispersión (por ejemplo, ± 50px) para que no se apilen perfectamente.
-            const scatterRange = 50; 
-            const randomOffsetX = Math.random() * scatterRange - (scatterRange / 2); // De -25 a +25
-            const randomOffsetY = Math.random() * scatterRange - (scatterRange / 2); // De -25 a +25
+            // 3. Definir un rango de dispersión (± 150px) para mantener la aleatoriedad.
+            const scatterRange = 150; 
+            const randomOffsetX = Math.random() * scatterRange - (scatterRange / 2); // De -75 a +75
+            const randomOffsetY = Math.random() * scatterRange - (scatterRange / 2); // De -75 a +75
 
             let targetX = baseX + randomOffsetX;
             let targetY = baseY + randomOffsetY;
