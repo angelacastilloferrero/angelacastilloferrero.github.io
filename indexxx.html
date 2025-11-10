@@ -64,6 +64,8 @@
         .main-info p {
             margin: 0;
             padding: 0;
+            /* Asegurar que el texto dentro de main-info se alinea a la izquierda */
+            text-align: left; 
         }
 
         /* Salto de línea solicitado entre párrafos */
@@ -77,7 +79,7 @@
         .contact-info {
             text-align: right;
             line-height: 1.5;
-            display: flex; /* Nuevo: para alinear el mail y el botón */
+            display: flex; 
             flex-direction: column;
             align-items: flex-end;
         }
@@ -121,7 +123,7 @@
         /* === ESTILOS PARA TÍTULO Y TEXTO CENTRAL === */
 
         .about-container {
-             /* **AJUSTE: Eliminación de borde y sombra** */
+             /* Eliminación de borde y sombra */
              border: none; 
              box-shadow: none;
              padding: 15px;
@@ -234,7 +236,8 @@
         <header class="header">
             <div class="main-info">
                 <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
-                Jewelry / Fashion Accessories designer\nBased in Barcelona
+                <p>ewelry / Fashion Accessories designer
+                Based in Barcelona</p>J
             </div>
 
             <div class="contact-info">
@@ -250,7 +253,7 @@
                 Angela is a designer focused on creating narratives through material culture.
                 Her work explores the intersection between digital craftsmanship and traditional
                 techniques, creating fashion accessories with a unique approach.
-                <br><br>
+                <br>
                 Throughout her career, she has worked on <span class="highlight-blue">innovative parametric jewelry projects</span>
                 and has participated in <span class="highlight-blue">international design exhibitions</span>.
                 Her fascination with materials and their transformation drives her to constantly
@@ -351,51 +354,51 @@
         const BODY_MARGIN = 15; // El margen del body definido en CSS
 
         // ======================================================================
-        // FUNCIÓN PARA CALCULAR LA POSICIÓN INICIAL ALEATORIA Y EL AJUSTE DE LÍMITES
-        // **AJUSTE: Asegurar que las ventanas carguen dentro del marco de la web**
+        // FUNCIÓN PARA CALCULAR LA POSICIÓN INICIAL (AJUSTADA AL CENTRO DEL ABOUT ME)
         // ======================================================================
         function randomizeWindowPosition(windowElement) {
             const aboutContainer = document.querySelector('.about-container');
 
-            // 1. Encontrar el límite superior (parte inferior del about-container)
-            let minY = 0;
-            if (aboutContainer) {
-                // Posición absoluta en la ventana + altura del elemento + un pequeño margen (10px)
-                minY = aboutContainer.getBoundingClientRect().bottom + 10;
-            } else {
-                // Si no se encuentra, empieza desde un punto de referencia (Header y About-me ocupan unos 200px)
-                minY = 200;
-            }
-            // Asegurar un mínimo de 15px (el margen del body)
-            minY = Math.max(minY, BODY_MARGIN);
+            if (!aboutContainer) return; // Si no hay About, salimos
 
-
-            // 2. Definir el área disponible (evitar salirse del borde)
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
 
             const elementWidth = windowElement.offsetWidth;
             const elementHeight = windowElement.offsetHeight;
 
-            // Calcular límites máximos (el elemento no puede empezar más allá de: viewport - su tamaño - margen)
-            let maxLeft = viewportWidth - elementWidth - BODY_MARGIN;
-            let maxTop = viewportHeight - elementHeight - BODY_MARGIN;
+            // 1. Obtener la posición y dimensiones del about-container
+            const aboutRect = aboutContainer.getBoundingClientRect();
+            
+            // Calcular el centro del about-container
+            const aboutCenterX = aboutRect.left + (aboutRect.width / 2);
+            const aboutCenterY = aboutRect.top + (aboutRect.height / 2);
 
-            // Ajustar los límites por si la ventana es muy grande
-            if (maxLeft < BODY_MARGIN) maxLeft = BODY_MARGIN;
-            if (maxTop < minY) maxTop = minY;
+            // 2. Calcular la posición base para que el centro de la ventana coincida con el centro del about
+            let baseX = aboutCenterX - (elementWidth / 2);
+            let baseY = aboutCenterY - (elementHeight / 2);
 
+            // 3. Definir un rango de dispersión (por ejemplo, ± 50px) para que no se apilen perfectamente.
+            const scatterRange = 50; 
+            const randomOffsetX = Math.random() * scatterRange - (scatterRange / 2); // De -25 a +25
+            const randomOffsetY = Math.random() * scatterRange - (scatterRange / 2); // De -25 a +25
 
-            let randomTop, randomLeft;
+            let targetX = baseX + randomOffsetX;
+            let targetY = baseY + randomOffsetY;
 
-            // Generar posición inicial completamente aleatoria dentro de los límites
-            randomTop = Math.random() * (maxTop - minY) + minY;
-            randomLeft = Math.random() * (maxLeft - BODY_MARGIN) + BODY_MARGIN;
-
-
+            // 4. Aplicar límites de borde (Asegurar que la ventana no se salga)
+            const MIN_LEFT = BODY_MARGIN;
+            const MIN_TOP = BODY_MARGIN;
+            const MAX_LEFT = viewportWidth - elementWidth - BODY_MARGIN;
+            const MAX_TOP = viewportHeight - elementHeight - BODY_MARGIN;
+            
+            // Limitar la posición
+            targetX = Math.min(Math.max(targetX, MIN_LEFT), MAX_LEFT);
+            targetY = Math.min(Math.max(targetY, MIN_TOP), MAX_TOP);
+            
             // Aplicar la posición
-            windowElement.style.top = randomTop + 'px';
-            windowElement.style.left = randomLeft + 'px';
+            windowElement.style.top = targetY + 'px';
+            windowElement.style.left = targetX + 'px';
         }
 
         // Función para actualizar las dimensiones en el footer del texto
@@ -416,7 +419,8 @@
 
             const loadHandler = () => {
                 setInitialDimensions(windowElement, img);
-                randomizeWindowPosition(windowElement); // Asignar posición aleatoria después de saber el tamaño
+                // Llamamos a randomizeWindowPosition aquí para obtener la posición centrada
+                randomizeWindowPosition(windowElement); 
             };
 
             if (img && img.complete) {
