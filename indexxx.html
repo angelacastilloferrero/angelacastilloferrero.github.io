@@ -14,7 +14,6 @@
         /* CONFIGURACIÓN BASE Y ANCHO TOTAL */
         body {
             position: relative; 
-            /* CLAVE: Desactiva el desbordamiento horizontal y vertical */
             overflow: hidden; 
             background-size: cover;
             background-repeat: no-repeat;
@@ -23,9 +22,8 @@
             line-height: 1.5;
             font-size: 1em;
             margin: 15;
-            /* Quitamos el gran padding-bottom ya que el overflow está en hidden */
             padding-bottom: 0; 
-            height: 100vh; /* Asegura que el body ocupe toda la altura de la vista */
+            height: 100vh; 
         }
 
         /* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
@@ -81,7 +79,6 @@
         
         /* === ESTILOS PARA LAS VENTANAS FLOTANTES === */
         
-        /* Estilo para el título "Highlights Lately" */
         .highlights-title {
             font-size: 1.8em;
             margin-bottom: 20px;
@@ -90,11 +87,10 @@
         .window {
             position: absolute; 
             
-            /* Usamos 'aspect-ratio' en CSS como fallback visual, aunque JS controlará la redimensión */
-            aspect-ratio: 2 / 3; /* Proporción 2:3 (vertical) para las imágenes de ejemplo */
+            /* Eliminamos 'aspect-ratio' de CSS, el JS lo maneja al inicio */
             
             min-width: 150px; 
-            min-height: 225px; /* Min-height basado en la proporción 2:3 */
+            min-height: 100px;
             
             background-color: #f0f0f0; 
             border: 1px solid #333;
@@ -118,6 +114,7 @@
 
         .window-body {
             padding: 5px;
+            /* Usamos una altura dinámica con Flexbox/Grid o calculada por JS */
             height: calc(100% - 31px); 
             overflow: hidden; 
             cursor: move; 
@@ -127,7 +124,8 @@
             display: block;
             width: 100%;
             height: 100%; 
-            object-fit: contain; 
+            /* CLAVE: Usamos 'cover' para asegurar que no haya bordes (el JS se encarga de que las proporciones coincidan) */
+            object-fit: cover; 
         }
         
         /* Asa para redimensionar */
@@ -173,7 +171,7 @@
         
         <div class="highlights-container">
             
-            <div class="highlight-item window" id="item-1" data-aspect-ratio="0.6666" style="top: 100px; left: 20px; width: 300px; height: 450px;">
+            <div class="highlight-item window" id="item-1" style="top: 100px; left: 20px;">
                 <div class="window-header">Twist Capsule I</div>
                 <div class="window-body">
                     <img 
@@ -183,7 +181,7 @@
                 <div class="resize-handle"></div>
             </div>
 
-            <div class="highlight-item window" id="item-2" data-aspect-ratio="0.6666" style="top: 250px; left: 35%; width: 400px; height: 600px;">
+            <div class="highlight-item window" id="item-2" style="top: 250px; left: 35%;">
                 <div class="window-header">Twist Capsule II</div>
                 <div class="window-body">
                     <img 
@@ -193,7 +191,7 @@
                 <div class="resize-handle"></div>
             </div>
 
-            <div class="highlight-item window" id="item-3" data-aspect-ratio="0.6666" style="top: 400px; left: 65%; width: 250px; height: 375px;">
+            <div class="highlight-item window" id="item-3" style="top: 400px; left: 65%;">
                 <div class="window-header">Twist Capsule III</div>
                 <div class="window-body">
                     <img 
@@ -203,21 +201,21 @@
                 <div class="resize-handle"></div>
             </div>
 
-            <div class="highlight-item window" id="item-4" data-aspect-ratio="1" style="top: 50px; left: 500px; width: 200px; height: 200px;">
+            <div class="highlight-item window" id="item-4" style="top: 50px; left: 500px;">
                 <div class="window-header">Project Placeholder IV</div>
                 <div class="window-body">
                     <img 
-                        src="placeholder-4.jpg" 
+                        src="https://via.placeholder.com/400x400" 
                         alt="Placeholder 4">
                 </div>
                 <div class="resize-handle"></div>
             </div>
 
-            <div class="highlight-item window" id="item-5" data-aspect-ratio="1.5" style="top: 550px; left: 100px; width: 450px; height: 300px;">
+            <div class="highlight-item window" id="item-5" style="top: 550px; left: 100px;">
                 <div class="window-header">Project Placeholder V</div>
                 <div class="window-body">
                     <img 
-                        src="placeholder-5.jpg" 
+                        src="https://via.placeholder.com/600x400" 
                         alt="Placeholder 5">
                 </div>
                 <div class="resize-handle"></div>
@@ -241,12 +239,49 @@
         let xOffset, yOffset; 
         
         let initialWidth, initialHeight; 
-        let initialRatio; // Almacena la proporción de la ventana
+        let initialRatio; // La proporción de aspecto dinámica
+
         let highestZIndex = 100;
+
+        // Función de inicialización para establecer el tamaño y la proporción
+        function initializeWindow(windowElement) {
+            const img = windowElement.querySelector('img');
+            
+            // Usamos un evento para asegurar que la imagen se haya cargado completamente
+            // y obtener sus dimensiones reales.
+            if (img && img.complete) {
+                // La imagen ya está cargada
+                setInitialDimensions(windowElement, img);
+            } else if (img) {
+                // Esperar a que la imagen cargue
+                img.onload = () => setInitialDimensions(windowElement, img);
+            }
+        }
+
+        function setInitialDimensions(windowElement, img) {
+            // Dimensiones deseadas al inicio (puedes ajustar el ancho inicial aquí)
+            const targetWidth = 300; 
+            
+            // 1. Calcular la proporción de la imagen
+            const ratio = img.naturalWidth / img.naturalHeight;
+            
+            // 2. Establecer el alto y ancho inicial del contenedor (window)
+            const targetHeight = targetWidth / ratio;
+            
+            windowElement.style.width = targetWidth + 'px';
+            // Ajustamos el alto sumando la altura del header (aproximadamente 31px)
+            windowElement.style.height = (targetHeight + 31) + 'px';
+
+            // 3. Almacenar la proporción en un atributo para el redimensionamiento
+            windowElement.setAttribute('data-aspect-ratio', ratio);
+        }
 
         // 1. Configuración de escuchadores de eventos
         draggableElements.forEach(item => {
             const resizeHandle = item.querySelector('.resize-handle');
+            
+            // Inicializar cada ventana al cargar
+            initializeWindow(item);
             
             // Arrastre (en toda la ventana)
             item.addEventListener('mousedown', startInteraction);
@@ -274,7 +309,6 @@
         /* ==================== INICIO DE INTERACCIÓN (Arrastre) ==================== */
 
         function startInteraction(e) {
-            // Si el clic viene del handle de redimensión, salimos
             if (e.target.classList.contains('resize-handle')) {
                 return;
             }
@@ -293,7 +327,6 @@
             
             const rect = activeItem.getBoundingClientRect();
             
-            // Distancia del clic al borde izquierdo/superior de la ventana (para el arrastre suave)
             xOffset = eventClientX - rect.left;
             yOffset = eventClientY - rect.top;
             
@@ -319,8 +352,13 @@
             initialWidth = activeItem.offsetWidth;
             initialHeight = activeItem.offsetHeight;
 
-            // CLAVE: Obtener la proporción de aspecto inicial del data-attribute
-            initialRatio = parseFloat(activeItem.getAttribute('data-aspect-ratio')) || 1; 
+            // Obtener la proporción de aspecto dinámica (Ancho / Alto del body de la ventana)
+            initialRatio = parseFloat(activeItem.getAttribute('data-aspect-ratio'));
+            
+            if (isNaN(initialRatio)) {
+                // Fallback de seguridad, aunque initializeWindow() debería haberlo establecido
+                initialRatio = initialWidth / initialHeight;
+            }
         }
 
 
@@ -333,27 +371,37 @@
             const isTouch = e.type.includes('touch');
             const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
             const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
+            
+            // Altura de la barra de título (aproximadamente 31px)
+            const HEADER_HEIGHT = 31; 
 
             if (isResizing) {
                 // Modo Redimensión
                 const deltaX = eventClientX - initialX;
                 const deltaY = eventClientY - initialY;
                 
-                // Determinar qué dimensión usar para mantener la proporción
-                // Elegimos la dimensión que haya cambiado más (el delta más grande) para guiar la redimensión
-                let newWidth, newHeight;
+                let newWidth, newBodyHeight;
                 
-                if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                    // Guiar por el ancho
-                    newWidth = Math.max(initialWidth + deltaX, 150);
-                    newHeight = newWidth / initialRatio;
-                } else {
-                    // Guiar por el alto
+                // Opción 1: Guiar por el ancho (más común)
+                newWidth = Math.max(initialWidth + deltaX, 150);
+                
+                // La altura del BODY de la ventana se calcula en base al nuevo ancho y la proporción de la imagen
+                newBodyHeight = newWidth / initialRatio;
+
+                // El alto total de la ventana es el alto del body + el alto del header
+                let newHeight = newBodyHeight + HEADER_HEIGHT;
+
+                // Opción 2: Si el usuario está moviendo más el alto que el ancho, guiar por el alto.
+                if (Math.abs(deltaY) > Math.abs(deltaX)) {
                     newHeight = Math.max(initialHeight + deltaY, 100);
-                    newWidth = newHeight * initialRatio;
+                    newBodyHeight = newHeight - HEADER_HEIGHT;
+                    
+                    if (newBodyHeight > 0) {
+                        newWidth = newBodyHeight * initialRatio;
+                    }
                 }
                 
-                // Aplicar el nuevo tamaño, asegurando que se respete el tamaño mínimo
+                // Aplicar el nuevo tamaño, asegurando los mínimos
                 if (newWidth >= 150 && newHeight >= 100) {
                     activeItem.style.width = newWidth + 'px';
                     activeItem.style.height = newHeight + 'px';
@@ -370,7 +418,7 @@
         }
 
 
-        /* ==================== FUNCIÓN DE FINALIZACIÓN (DRAG/RESIZE) ==================== */
+        /* ==================== FUNCIÓN DE FINALIZACIÓN ==================== */
 
         function dragEnd(e) {
             if (!activeItem) return;
@@ -380,6 +428,11 @@
             activeItem = null;
             isResizing = false;
         }
+
+        // Llamada inicial para asegurar que todas las imágenes se inicialicen
+        window.addEventListener('load', () => {
+            draggableElements.forEach(item => initializeWindow(item));
+        });
     </script>
     </body>
 </html>
