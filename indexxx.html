@@ -14,7 +14,8 @@
         /* DEFINICIÓN DE FUENTE GLOBAL Y TAMAÑO */
         body {
             position: relative;
-            overflow: hidden;
+            /* La parte de overflow: hidden puede ser ajustada si las ventanas se salen mucho */
+            overflow: hidden; 
             background-size: cover;
             background-repeat: no-repeat;
 
@@ -53,7 +54,7 @@
             margin-bottom: 20px;
         }
 
-        /* Contenedor principal de la izquierda (info + botón) */
+        /* Contenedor principal de la izquierda */
         .main-info {
             display: flex;
             flex-direction: column;
@@ -72,9 +73,13 @@
             margin-bottom: 5px;
         }
 
+        /* Contenedor de contacto y botón (derecha) */
         .contact-info {
             text-align: right;
             line-height: 1.5;
+            display: flex; /* Nuevo: para alinear el mail y el botón */
+            flex-direction: column;
+            align-items: flex-end;
         }
 
         .contact-info p {
@@ -83,24 +88,7 @@
              margin: 0;
              white-space: nowrap;
         }
-
-        /* === CONTENEDOR PARA EL BOTÓN Y EL HIGHLIGHTS === */
-        /* Highlights centrado, en la misma línea del botón (aunque el botón esté reubicado en .header) */
-        .button-highlight-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            margin-bottom: 25px;
-        }
-
-        .main-info-button {
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             width: 100%;
-        }
-
+        
         /* === ESTILOS DEL BOTÓN (PORTFOLIO REQUEST) === */
         .button {
             align-items: center;
@@ -112,12 +100,12 @@
             cursor: pointer;
             display: inline-flex;
             font: inherit;
-            margin: 0;
-            /* Botón más pequeño */
+            margin-top: 5px; /* Margen para separarlo del email */
             padding: 5px 10px;
             text-decoration: none;
             white-space: nowrap;
             transition: background-color 0.2s;
+            font-size: 11pt; /* Asegurar que mantiene el tamaño de fuente */
         }
 
         .button-primary {
@@ -130,41 +118,25 @@
             background-color: #A0522D;
         }
 
-        /* Contenedor para alinear el botón a la derecha */
-        .button-right-align {
-            width: 100%;
-            text-align: right; /* Alinea el botón a la derecha */
-            margin-top: 5px;
-        }
-
         /* === ESTILOS PARA TÍTULO Y TEXTO CENTRAL === */
-        .highlights-title {
-            /* Título Highlights Lately */
-            font-size: 1.2em;
-            text-decoration: underline;
-            text-align: center;
-            margin: 0 20px;
-            white-space: nowrap;
-        }
 
         .about-container {
-             /* Cuadro de texto About me */
-             /* Borde a 0.5px */
-             border: 0.5px solid black;
+             /* **AJUSTE: Eliminación de borde y sombra** */
+             border: none; 
+             box-shadow: none;
              padding: 15px;
-             /* Más centrado hacia abajo */
-             margin: 100px auto 40px auto;
+             /* Centrado vertical */
+             margin: 100px auto 40px auto; 
              width: 80%;
              max-width: 600px;
              background-color: white;
-             box-shadow: 4px 4px 0px #888;
              z-index: 1;
              position: relative;
         }
 
         .about-text {
             /* Texto About me! */
-            text-align: justify; /* Justificado */
+            text-align: justify;
             margin: 0;
             font-size: 1em;
             color: black;
@@ -263,26 +235,17 @@
             <div class="main-info">
                 <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
                 Jewelry / Fashion Accessories designer
-                Based in Barcelona
                 <br>
-                <div class="button-right-align">
-                    <button class="button button-primary" onclick="alert(añadir correo?)">
-                        Full Portfolio available upon request
-                    </button>
-                </div>
+                Based in Barcelona
             </div>
 
             <div class="contact-info">
                 <p>castillofereroangela(at)gmail(dot)com</p>
+                <button class="button button-primary" onclick="alert(añadir correo?)">
+                    Full Portfolio available upon request
+                </button>
             </div>
         </header>
-
-        <div class="button-highlight-bar">
-             <div class="main-info-button">
-                 </div>
-             <h2 class="highlights-title" id="highlights-title">Highlights Lately</h2>
-             <div style="width: 100%;"></div>
-        </div>
 
         <div class="about-container">
             <p class="about-text" id="about-me-text">
@@ -386,10 +349,12 @@
         let initialRatio;
         let highestZIndex = 100;
 
-        const FOOTER_HEIGHT = 35; // Altura aproximada del nuevo footer
+        const FOOTER_HEIGHT = 35; 
+        const BODY_MARGIN = 15; // El margen del body definido en CSS
 
         // ======================================================================
         // FUNCIÓN PARA CALCULAR LA POSICIÓN INICIAL ALEATORIA Y EL AJUSTE DE LÍMITES
+        // **AJUSTE: Asegurar que las ventanas carguen dentro del marco de la web**
         // ======================================================================
         function randomizeWindowPosition(windowElement) {
             const aboutContainer = document.querySelector('.about-container');
@@ -400,41 +365,35 @@
                 // Posición absoluta en la ventana + altura del elemento + un pequeño margen (10px)
                 minY = aboutContainer.getBoundingClientRect().bottom + 10;
             } else {
-                // Si no se encuentra, empieza desde un punto de referencia aproximado
-                minY = 250;
+                // Si no se encuentra, empieza desde un punto de referencia (Header y About-me ocupan unos 200px)
+                minY = 200;
             }
+            // Asegurar un mínimo de 15px (el margen del body)
+            minY = Math.max(minY, BODY_MARGIN);
+
 
             // 2. Definir el área disponible (evitar salirse del borde)
-            const viewportWidth = window.innerWidth - 30; // 30px es el margin del body (15px + 15px)
-            const viewportHeight = window.innerHeight - 30;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
 
             const elementWidth = windowElement.offsetWidth;
             const elementHeight = windowElement.offsetHeight;
 
-            // Calcular límites máximos (asegurando que el mínimo sea 15px, el margen del body)
-            let maxLeft = viewportWidth - elementWidth;
-            let maxTop = viewportHeight - elementHeight;
+            // Calcular límites máximos (el elemento no puede empezar más allá de: viewport - su tamaño - margen)
+            let maxLeft = viewportWidth - elementWidth - BODY_MARGIN;
+            let maxTop = viewportHeight - elementHeight - BODY_MARGIN;
 
-            // Forzar límites mínimos
-            if (maxLeft < 15) maxLeft = 15;
+            // Ajustar los límites por si la ventana es muy grande
+            if (maxLeft < BODY_MARGIN) maxLeft = BODY_MARGIN;
             if (maxTop < minY) maxTop = minY;
 
 
-            // Obtener la posición actual (si ya está definida) o generar una aleatoria
-            let currentLeft = parseFloat(windowElement.style.left) || 0;
-            let currentTop = parseFloat(windowElement.style.top) || 0;
-
             let randomTop, randomLeft;
 
-            if (currentLeft === 0 && currentTop === 0) {
-                 // Posición inicial completamente aleatoria
-                 randomTop = Math.random() * (maxTop - minY) + minY;
-                 randomLeft = Math.random() * (maxLeft - 15) + 15;
-            } else {
-                 // Si la ventana ya ha sido movida, solo ajusta para que no se salga de los límites
-                 randomTop = Math.min(Math.max(currentTop, minY), maxTop);
-                 randomLeft = Math.min(Math.max(currentLeft, 15), maxLeft);
-            }
+            // Generar posición inicial completamente aleatoria dentro de los límites
+            randomTop = Math.random() * (maxTop - minY) + minY;
+            randomLeft = Math.random() * (maxLeft - BODY_MARGIN) + BODY_MARGIN;
+
 
             // Aplicar la posición
             windowElement.style.top = randomTop + 'px';
@@ -500,7 +459,6 @@
         draggableElements.forEach(item => {
             const resizeHandle = item.querySelector('.resize-handle');
 
-            // La inicialización ahora llama a randomizeWindowPosition internamente
             initializeWindow(item);
 
             item.addEventListener('mousedown', startInteraction);
@@ -585,12 +543,12 @@
             const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
             const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
 
-            const viewportWidth = window.innerWidth - 30; // Body margin (15px * 2)
-            const viewportHeight = window.innerHeight - 30; // Body margin (15px * 2)
+            const viewportWidth = window.innerWidth; 
+            const viewportHeight = window.innerHeight; 
             const itemWidth = activeItem.offsetWidth;
             const itemHeight = activeItem.offsetHeight;
-            const MIN_LEFT = 15;
-            const MIN_TOP = 15;
+            const MIN_LEFT = BODY_MARGIN;
+            const MIN_TOP = BODY_MARGIN;
 
             if (isResizing) {
                 const deltaX = eventClientX - initialX;
@@ -618,8 +576,11 @@
 
                 if (newWidth >= 150 && newHeight >= 100) {
                      // Limitar el tamaño de redimensión para no salirse de la web
-                    let maxPossibleWidth = viewportWidth - (parseFloat(activeItem.style.left) || 0);
-                    let maxPossibleHeight = viewportHeight - (parseFloat(activeItem.style.top) || 0);
+                    let currentLeft = parseFloat(activeItem.style.left) || 0;
+                    let currentTop = parseFloat(activeItem.style.top) || 0;
+
+                    let maxPossibleWidth = viewportWidth - currentLeft - BODY_MARGIN;
+                    let maxPossibleHeight = viewportHeight - currentTop - BODY_MARGIN;
 
                     if (newWidth > maxPossibleWidth) {
                          newWidth = maxPossibleWidth;
@@ -644,8 +605,8 @@
                 currentY = eventClientY - yOffset;
 
                 // Asegurarse de que no se salga de la web
-                const maxX = viewportWidth - itemWidth;
-                const maxY = viewportHeight - itemHeight;
+                const maxX = viewportWidth - itemWidth - BODY_MARGIN;
+                const maxY = viewportHeight - itemHeight - BODY_MARGIN;
 
                 // Aplicar límites
                 currentX = Math.min(Math.max(currentX, MIN_LEFT), maxX);
