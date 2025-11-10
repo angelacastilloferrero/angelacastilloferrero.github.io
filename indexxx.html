@@ -11,17 +11,20 @@
     <link rel="stylesheet" type="text/css" href="style.css"> 
 
     <style>
-        /* CONFIGURACIÓN BASE Y ANCHO TOTAL */
+        /* DEFINICIÓN DE FUENTE GLOBAL Y TAMAÑO */
         body {
             position: relative; 
-            overflow: hidden; /* Desactiva las barras de desplazamiento */
+            overflow: hidden; 
             background-size: cover;
             background-repeat: no-repeat;
             
-            font-family: Arial, sans-serif;
+            /* Ajustes de fuente solicitados */
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12pt; 
             line-height: 1.5;
-            font-size: 1em;
-            margin: 15;
+            
+            /* Margen en ambos lados para imitar el padding: 15px en body */
+            margin: 15px; 
             padding-bottom: 0; 
             height: 100vh; 
         }
@@ -30,8 +33,8 @@
         .container {
             max-width: 100%;
             width: 100%;
-            margin: 0px 0;
-            padding: 10px;
+            margin: 0px; /* Se eliminó el margen horizontal, ya que el body lo maneja */
+            padding: 0px; /* Se eliminó el padding, ya que el body lo maneja */
         }
 
         /* ESTILOS DE ENLACES */
@@ -52,7 +55,16 @@
 
         .main-info p {
             margin: 0;
+            padding: 0;
         }
+        
+        /* Salto de línea solicitado entre párrafos */
+        .main-info br {
+            display: block;
+            content: "";
+            margin-bottom: 5px; /* Pequeño espacio para el salto de línea */
+        }
+
 
         .contact-info {
             text-align: right;
@@ -61,7 +73,7 @@
         
         .contact-info p {
              color: #0000ff;
-             font-size: 1em;
+             font-size: 1em; /* 1em aquí es 12pt */
              margin: 0;
              white-space: nowrap; 
         }
@@ -83,7 +95,7 @@
             color: #1a1a1a; 
             cursor: pointer;
             display: inline-flex;
-            font: inherit;
+            font: inherit; /* Hereda Times New Roman */
             justify-content: left;
             margin: 0;
             padding: 8px 15px;
@@ -104,7 +116,7 @@
         
         /* === ESTILOS PARA LAS VENTANAS FLOTANTES === */
         .highlights-title {
-            font-size: 1.8em;
+            font-size: 1.5em; /* Ajustado ligeramente */
             margin-bottom: 20px;
         }
         
@@ -119,23 +131,17 @@
             z-index: 100;
             
             resize: none; 
-            overflow: hidden; 
+            overflow: visible; /* Debe ser visible para que el nuevo footer de la ventana quepa */
             cursor: pointer; 
+            
+            display: flex; /* Usamos flexbox para colocar el header y el body */
+            flex-direction: column; 
         }
-
-        .window-header {
-            cursor: move; 
-            background-color: #ccc;
-            color: #000;
-            padding: 5px 10px;
-            font-weight: bold;
-            border-bottom: 1px solid #333;
-            user-select: none;
-        }
-
+        
+        /* Contenedor del cuerpo (contenido de la imagen) */
         .window-body {
-            padding: 5px;
-            height: calc(100% - 31px); 
+            padding: 0; /* Quitamos el padding del body */
+            flex-grow: 1; /* Ocupa todo el espacio entre el header y el footer */
             overflow: hidden; 
             cursor: move; 
         }
@@ -144,9 +150,41 @@
             display: block;
             width: 100%;
             height: 100%; 
-            object-fit: cover; /* La imagen cubre el espacio sin barras */
+            object-fit: cover; 
         }
         
+        /* TITULO DE VENTANA - AHORA ES FOOTER */
+        .window-footer {
+            cursor: move; 
+            background-color: #fff; /* Fondo blanco para el texto */
+            color: #000;
+            padding: 5px 10px;
+            border-top: 1px solid #333;
+            user-select: none;
+            flex-shrink: 0; /* No se encoge */
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* Ocultamos el header antiguo */
+        .window-header {
+            display: none;
+        }
+        
+        /* Estilos del texto del footer */
+        .filename-text {
+            color: #8B4513; /* Marrón */
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .dimensions-text {
+            color: #000; /* Negro */
+            font-style: italic;
+        }
+
         /* Asa para redimensionar */
         .resize-handle {
             position: absolute;
@@ -174,7 +212,7 @@
                 <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
                 <p>Jewelry / Fashion Accessories designer</p>
                 <p>Based in Barcelona</p>
-                <button class="button button-primary" onclick="alert('Enlace de Portfolio: Aquí puedes añadir un enlace mailto: o una URL de contacto')">
+                <br> <button class="button button-primary" onclick="alert('Enlace de Portfolio: Aquí puedes añadir un enlace mailto: o una URL de contacto')">
                     Full Portfolio available upon request
                 </button>
             </div>
@@ -191,51 +229,70 @@
         <div class="highlights-container">
             
             <div class="highlight-item window" id="item-1" style="top: 100px; left: 20px;">
-                <div class="window-header">Twist Capsule I</div>
-                <div class="window-body">
-                    <img 
+                <div class="window-header"></div> <div class="window-body">
+                    <img id="img-1"
                         src="https://d2w9rnfcy7mm78.cloudfront.net/40812628/original_172a35df3b3170e2a010826f4a9fe9b0.png?1762184347?bc=0" 
                         alt="Destacado 1: Twist Capsule">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">Twist Capsule I</span>
+                    <span class="dimensions-text" id="dims-1"></span>
                 </div>
                 <div class="resize-handle"></div>
             </div>
 
             <div class="highlight-item window" id="item-2" style="top: 250px; left: 35%;">
-                <div class="window-header">Twist Capsule II</div>
+                <div class="window-header"></div>
                 <div class="window-body">
-                    <img 
+                    <img id="img-2"
                         src="https://d2w9rnfcy7mm78.cloudfront.net/40812625/original_85f18373dedff59799d870842540b485.png?1762184345?bc=0" 
                         alt="Destacado 2: Twist Capsule">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">Twist Capsule II</span>
+                    <span class="dimensions-text" id="dims-2"></span>
                 </div>
                 <div class="resize-handle"></div>
             </div>
 
             <div class="highlight-item window" id="item-3" style="top: 400px; left: 65%;">
-                <div class="window-header">Twist Capsule III</div>
+                <div class="window-header"></div>
                 <div class="window-body">
-                    <img 
+                    <img id="img-3"
                         src="https://d2w9rnfcy7mm78.cloudfront.net/40812631/original_19f7e92dfe38cfa2b98cf28f4ba0f9c4.png?1762184353?bc=0" 
                         alt="Destacado 3: Twist Capsule">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">Twist Capsule III</span>
+                    <span class="dimensions-text" id="dims-3"></span>
                 </div>
                 <div class="resize-handle"></div>
             </div>
 
             <div class="highlight-item window" id="item-4" style="top: 50px; left: 500px;">
-                <div class="window-header">Project Placeholder IV</div>
+                <div class="window-header"></div>
                 <div class="window-body">
-                    <img 
+                    <img id="img-4"
                         src="https://via.placeholder.com/400x400" 
                         alt="Placeholder 4">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">Project Placeholder IV</span>
+                    <span class="dimensions-text" id="dims-4"></span>
                 </div>
                 <div class="resize-handle"></div>
             </div>
 
             <div class="highlight-item window" id="item-5" style="top: 550px; left: 100px;">
-                <div class="window-header">Project Placeholder V</div>
+                <div class="window-header"></div>
                 <div class="window-body">
-                    <img 
+                    <img id="img-5"
                         src="https://via.placeholder.com/600x400" 
                         alt="Placeholder 5">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">Project Placeholder V</span>
+                    <span class="dimensions-text" id="dims-5"></span>
                 </div>
                 <div class="resize-handle"></div>
             </div>
@@ -243,10 +300,6 @@
         </div>
         </main>
 
-    <footer class="footer container">
-        <p class="last-updated" style="text-align: right;">last updated: 03/nov/25</p>
-    </footer>
-    
     <script>
         const draggableElements = document.querySelectorAll('.window');
         
@@ -260,7 +313,20 @@
         let initialWidth, initialHeight; 
         let initialRatio; 
         let highestZIndex = 100;
-        const HEADER_HEIGHT = 31; // Altura aproximada del encabezado
+        
+        // Ajustada la altura del FOOTER/TÍTULO
+        const FOOTER_HEIGHT = 35; // Altura aproximada del nuevo footer
+
+        // Función para actualizar las dimensiones en el footer del texto
+        function updateDimensionsText(windowElement) {
+            const currentWidth = Math.round(windowElement.offsetWidth - (windowElement.style.paddingLeft ? parseFloat(windowElement.style.paddingLeft) : 0) - (windowElement.style.paddingRight ? parseFloat(windowElement.style.paddingRight) : 0));
+            const currentHeight = Math.round(windowElement.offsetHeight - FOOTER_HEIGHT - (windowElement.style.paddingTop ? parseFloat(windowElement.style.paddingTop) : 0) - (windowElement.style.paddingBottom ? parseFloat(windowElement.style.paddingBottom) : 0));
+            
+            const dimensionsSpan = windowElement.querySelector('.dimensions-text');
+            if (dimensionsSpan) {
+                dimensionsSpan.textContent = `(${currentWidth}x${currentHeight})`;
+            }
+        }
 
         // Función para establecer el tamaño inicial y la proporción
         function initializeWindow(windowElement) {
@@ -279,9 +345,13 @@
             const targetHeight = targetWidth / ratio;
             
             windowElement.style.width = targetWidth + 'px';
-            windowElement.style.height = (targetHeight + HEADER_HEIGHT) + 'px';
+            // Ajustamos el alto sumando la altura del FOOTER
+            windowElement.style.height = (targetHeight + FOOTER_HEIGHT) + 'px';
 
             windowElement.setAttribute('data-aspect-ratio', ratio);
+            
+            // Llama a la función para mostrar las dimensiones iniciales
+            updateDimensionsText(windowElement);
         }
 
         // 1. Configuración de escuchadores de eventos
@@ -290,11 +360,9 @@
             
             initializeWindow(item);
             
-            // Eventos de ratón/táctiles para arrastre
             item.addEventListener('mousedown', startInteraction);
             item.addEventListener('touchstart', startInteraction); 
             
-            // Eventos de ratón/táctiles para redimensión
             if (resizeHandle) {
                 resizeHandle.addEventListener('mousedown', resizeStart);
                 resizeHandle.addEventListener('touchstart', resizeStart);
@@ -335,7 +403,6 @@
             
             const rect = activeItem.getBoundingClientRect();
             
-            // Calcula el offset para un arrastre suave
             xOffset = eventClientX - rect.left;
             yOffset = eventClientY - rect.top;
             
@@ -361,7 +428,6 @@
             initialWidth = activeItem.offsetWidth;
             initialHeight = activeItem.offsetHeight;
 
-            // Obtiene la proporción guardada
             initialRatio = parseFloat(activeItem.getAttribute('data-aspect-ratio')) || (initialWidth / initialHeight);
         }
 
@@ -390,21 +456,23 @@
                 } else {
                     // Guiar por el alto
                     let newHeight = Math.max(initialHeight + deltaY, 100);
-                    newBodyHeight = newHeight - HEADER_HEIGHT;
+                    newBodyHeight = newHeight - FOOTER_HEIGHT;
                     if (newBodyHeight > 0) {
                         newWidth = newBodyHeight * initialRatio;
                     } else {
-                        newBodyHeight = 100 - HEADER_HEIGHT;
+                        newBodyHeight = 100 - FOOTER_HEIGHT;
                         newWidth = newBodyHeight * initialRatio;
                     }
                 }
                 
-                let newHeight = newBodyHeight + HEADER_HEIGHT;
+                let newHeight = newBodyHeight + FOOTER_HEIGHT;
 
                 // Aplicar el nuevo tamaño, respetando los mínimos
                 if (newWidth >= 150 && newHeight >= 100) {
                     activeItem.style.width = newWidth + 'px';
                     activeItem.style.height = newHeight + 'px';
+                    // Actualizar el texto de dimensiones durante la redimensión
+                    updateDimensionsText(activeItem);
                 }
 
             } else {
@@ -424,6 +492,8 @@
             if (!activeItem) return;
 
             activeItem.classList.remove('active-drag', 'active-resize');
+            // Asegurarse de que las dimensiones finales se muestren correctamente
+            updateDimensionsText(activeItem);
             
             activeItem = null;
             isResizing = false;
