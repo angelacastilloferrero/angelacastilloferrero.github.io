@@ -373,10 +373,10 @@
             let baseX = aboutCenterX - (elementWidth / 2);
             let baseY = aboutCenterY - (elementHeight / 2);
 
-            // 3. Definir un rango de dispersión (± 150px) para mantener la aleatoriedad.
-            const scatterRange = 150; 
-            const randomOffsetX = Math.random() * scatterRange - (scatterRange / 2); // De -75 a +75
-            const randomOffsetY = Math.random() * scatterRange - (scatterRange / 2); // De -75 a +75
+            // 3. Definir un rango de dispersión (± 400px para mayor separación lateral).
+            const scatterRange = 400; 
+            const randomOffsetX = Math.random() * scatterRange - (scatterRange / 2); // De -200 a +200
+            const randomOffsetY = Math.random() * scatterRange - (scatterRange / 2); // De -200 a +200
 
             let targetX = baseX + randomOffsetX;
             let targetY = baseY + randomOffsetY;
