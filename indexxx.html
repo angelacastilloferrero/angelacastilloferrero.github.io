@@ -13,9 +13,9 @@
     <style>
         /* CONFIGURACIÓN BASE Y ANCHO TOTAL */
         body {
-            /* Importante para que las ventanas position: absolute; se muevan respecto a todo el body */
             position: relative; 
-            overflow-x: hidden; 
+            /* CLAVE: Desactiva el desbordamiento horizontal y vertical */
+            overflow: hidden; 
             background-size: cover;
             background-repeat: no-repeat;
             
@@ -23,8 +23,9 @@
             line-height: 1.5;
             font-size: 1em;
             margin: 15;
-            /* Se necesita un gran padding/margen inferior para que las ventanas puedan moverse hasta abajo */
-            padding-bottom: 2000px; 
+            /* Quitamos el gran padding-bottom ya que el overflow está en hidden */
+            padding-bottom: 0; 
+            height: 100vh; /* Asegura que el body ocupe toda la altura de la vista */
         }
 
         /* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
@@ -89,9 +90,11 @@
         .window {
             position: absolute; 
             
-            width: 300px; 
+            /* Usamos 'aspect-ratio' en CSS como fallback visual, aunque JS controlará la redimensión */
+            aspect-ratio: 2 / 3; /* Proporción 2:3 (vertical) para las imágenes de ejemplo */
+            
             min-width: 150px; 
-            min-height: 100px;
+            min-height: 225px; /* Min-height basado en la proporción 2:3 */
             
             background-color: #f0f0f0; 
             border: 1px solid #333;
@@ -100,13 +103,11 @@
             
             resize: none; 
             overflow: hidden; 
-            cursor: pointer; /* Cursor que indica que es interactivo */
+            cursor: pointer; 
         }
 
         .window-header {
-            /* Mantenemos el cursor 'move' en el header, aunque ya no sea la única zona */
             cursor: move; 
-            
             background-color: #ccc;
             color: #000;
             padding: 5px 10px;
@@ -118,8 +119,7 @@
         .window-body {
             padding: 5px;
             height: calc(100% - 31px); 
-            overflow: hidden;
-            /* La superficie del body también permite arrastrar */
+            overflow: hidden; 
             cursor: move; 
         }
 
@@ -142,7 +142,6 @@
             z-index: 10;
         }
 
-        /* Clase para elevar la ventana que se está moviendo */
         .active-drag, .active-resize {
             z-index: 1000;
         }
@@ -174,7 +173,7 @@
         
         <div class="highlights-container">
             
-            <div class="highlight-item window" id="item-1" style="top: 200px; left: 20px; height: 400px; width: 300px;">
+            <div class="highlight-item window" id="item-1" data-aspect-ratio="0.6666" style="top: 100px; left: 20px; width: 300px; height: 450px;">
                 <div class="window-header">Twist Capsule I</div>
                 <div class="window-body">
                     <img 
@@ -184,7 +183,7 @@
                 <div class="resize-handle"></div>
             </div>
 
-            <div class="highlight-item window" id="item-2" style="top: 100px; left: 35%; height: 500px; width: 380px;">
+            <div class="highlight-item window" id="item-2" data-aspect-ratio="0.6666" style="top: 250px; left: 35%; width: 400px; height: 600px;">
                 <div class="window-header">Twist Capsule II</div>
                 <div class="window-body">
                     <img 
@@ -194,7 +193,7 @@
                 <div class="resize-handle"></div>
             </div>
 
-            <div class="highlight-item window" id="item-3" style="top: 300px; left: 65%; height: 350px; width: 250px;">
+            <div class="highlight-item window" id="item-3" data-aspect-ratio="0.6666" style="top: 400px; left: 65%; width: 250px; height: 375px;">
                 <div class="window-header">Twist Capsule III</div>
                 <div class="window-body">
                     <img 
@@ -203,6 +202,27 @@
                 </div>
                 <div class="resize-handle"></div>
             </div>
+
+            <div class="highlight-item window" id="item-4" data-aspect-ratio="1" style="top: 50px; left: 500px; width: 200px; height: 200px;">
+                <div class="window-header">Project Placeholder IV</div>
+                <div class="window-body">
+                    <img 
+                        src="placeholder-4.jpg" 
+                        alt="Placeholder 4">
+                </div>
+                <div class="resize-handle"></div>
+            </div>
+
+            <div class="highlight-item window" id="item-5" data-aspect-ratio="1.5" style="top: 550px; left: 100px; width: 450px; height: 300px;">
+                <div class="window-header">Project Placeholder V</div>
+                <div class="window-body">
+                    <img 
+                        src="placeholder-5.jpg" 
+                        alt="Placeholder 5">
+                </div>
+                <div class="resize-handle"></div>
+            </div>
+
         </div>
         </main>
 
@@ -217,17 +237,18 @@
         let isResizing = false;
         
         let currentX, currentY; 
-        let initialX, initialY; // Coordenadas del ratón/toque al inicio del evento
-        let xOffset, yOffset;   // Distancia del clic al top/left del elemento
-
+        let initialX, initialY;
+        let xOffset, yOffset; 
+        
         let initialWidth, initialHeight; 
+        let initialRatio; // Almacena la proporción de la ventana
         let highestZIndex = 100;
 
         // 1. Configuración de escuchadores de eventos
         draggableElements.forEach(item => {
             const resizeHandle = item.querySelector('.resize-handle');
             
-            // Arrastre (Ahora en toda la ventana, excepto en el resize-handle)
+            // Arrastre (en toda la ventana)
             item.addEventListener('mousedown', startInteraction);
             item.addEventListener('touchstart', startInteraction); 
             
@@ -265,19 +286,17 @@
             const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
             const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
 
-            activeItem = this; // La ventana completa es el activeItem
+            activeItem = this; 
             activeItem.classList.add('active-drag');
             
-            elevateWindow(activeItem); // Eleva la ventana al hacer clic
+            elevateWindow(activeItem);
             
-            // NUEVO CÁLCULO DE OFFSET para evitar el salto
             const rect = activeItem.getBoundingClientRect();
             
-            // Distancia del clic al borde izquierdo/superior de la ventana
+            // Distancia del clic al borde izquierdo/superior de la ventana (para el arrastre suave)
             xOffset = eventClientX - rect.left;
             yOffset = eventClientY - rect.top;
             
-            // Guardamos las coordenadas iniciales del ratón/toque
             initialX = eventClientX;
             initialY = eventClientY;
         }
@@ -294,13 +313,14 @@
             activeItem.classList.add('active-resize');
             elevateWindow(activeItem);
 
-            // Posición inicial del ratón para el cálculo del delta
             initialX = isTouch ? e.touches[0].clientX : e.clientX;
             initialY = isTouch ? e.touches[0].clientY : e.clientY;
 
-            // Dimensiones iniciales del elemento
             initialWidth = activeItem.offsetWidth;
             initialHeight = activeItem.offsetHeight;
+
+            // CLAVE: Obtener la proporción de aspecto inicial del data-attribute
+            initialRatio = parseFloat(activeItem.getAttribute('data-aspect-ratio')) || 1; 
         }
 
 
@@ -318,21 +338,32 @@
                 // Modo Redimensión
                 const deltaX = eventClientX - initialX;
                 const deltaY = eventClientY - initialY;
-
-                // Calcula el nuevo tamaño, respetando el mínimo
-                const newWidth = Math.max(initialWidth + deltaX, parseInt(activeItem.style.minWidth) || 150);
-                const newHeight = Math.max(initialHeight + deltaY, parseInt(activeItem.style.minHeight) || 100);
-
-                activeItem.style.width = newWidth + 'px';
-                activeItem.style.height = newHeight + 'px';
+                
+                // Determinar qué dimensión usar para mantener la proporción
+                // Elegimos la dimensión que haya cambiado más (el delta más grande) para guiar la redimensión
+                let newWidth, newHeight;
+                
+                if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                    // Guiar por el ancho
+                    newWidth = Math.max(initialWidth + deltaX, 150);
+                    newHeight = newWidth / initialRatio;
+                } else {
+                    // Guiar por el alto
+                    newHeight = Math.max(initialHeight + deltaY, 100);
+                    newWidth = newHeight * initialRatio;
+                }
+                
+                // Aplicar el nuevo tamaño, asegurando que se respete el tamaño mínimo
+                if (newWidth >= 150 && newHeight >= 100) {
+                    activeItem.style.width = newWidth + 'px';
+                    activeItem.style.height = newHeight + 'px';
+                }
 
             } else {
                 // Modo Arrastre
-                // La nueva posición es la posición del ratón menos el offset inicial
                 currentX = eventClientX - xOffset;
                 currentY = eventClientY - yOffset;
                 
-                // Aplicamos la posición final directamente al top/left
                 activeItem.style.left = currentX + 'px';
                 activeItem.style.top = currentY + 'px';
             }
@@ -346,14 +377,9 @@
 
             activeItem.classList.remove('active-drag', 'active-resize');
             
-            // En este script, ya no usamos 'transform' para el arrastre, por lo que no hay que resetearlo.
-
-            // Resetea las variables de control
             activeItem = null;
             isResizing = false;
         }
-        
-        // NOTA: Eliminamos la función setTranslate() ya que ahora movemos con top/left para mayor simplicidad.
     </script>
     </body>
 </html>
