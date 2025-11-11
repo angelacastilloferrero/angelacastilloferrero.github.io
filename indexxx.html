@@ -250,6 +250,32 @@ a {
     opacity: 1;
     visibility: visible;
 }
+
+        /* CÓDIGO A AÑADIR DENTRO DE LA ETIQUETA <style> */
+
+/* === ESTILOS PARA EL PIE DE PÁGINA DE ATRIBUCIÓN === */
+.footer-attribution {
+    /* Posición fija en la esquina inferior derecha */
+    position: fixed; 
+    bottom: 15px; /* Margen inferior igual al del body */
+    right: 15px; /* Margen derecho igual al del body */
+    
+    /* Estilo de texto */
+    color: #aaaaaa; /* Gris claro */
+    font-size: 8pt; /* Un tamaño más pequeño y discreto */
+    z-index: 50; /* Asegura que esté por encima de la mayoría de los elementos */
+}
+
+/* Para asegurar que el enlace también sea gris claro */
+.footer-attribution a {
+    color: #aaaaaa;
+    text-decoration: none; /* Quitamos el subrayado para hacerlo más sutil */
+}
+
+.footer-attribution a:hover {
+    color: #777777; /* Un gris un poco más oscuro al pasar el ratón */
+    text-decoration: underline; /* Puedes añadir el subrayado en hover si quieres */
+}
     </style>
 
 </head>
@@ -411,6 +437,10 @@ a {
             </div>
 
         </div>
+
+         <div class="footer-attribution">
+        Website designed by <a href="https://www.instagram.com/marta.mkv" target="_blank">@marta.mkv</a>
+         </div>
     </main>
 
     <script>
