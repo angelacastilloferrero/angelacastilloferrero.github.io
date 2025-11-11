@@ -233,12 +233,13 @@
 
 /* Estilos para el campo de correo (inicialmente oculto o pequeño) */
 .email-input {
-    border: 1px solid #333;
+    border: 0.5px solid #333;
     background-color: white;
     color: black;
+    font-family: "Times New Roman", Times, serif;
     font-size: 11pt;
     padding: 2px 4px;
-    margin-right: 5px; /* Espacio entre el input y el botón */
+    margin-right: 10px; /* Espacio entre el input y el botón */
     width: 0; /* Empieza oculto */
     opacity: 0;
     visibility: hidden;
@@ -249,7 +250,7 @@
 
 /* Clase para mostrar el campo de correo */
 .email-input.visible {
-    width: 150px; /* Ancho deseado para el campo de correo */
+    width: 200px; /* Ancho deseado para el campo de correo */
     opacity: 1;
     visibility: visible;
 }
@@ -270,8 +271,7 @@
 
             <div class="contact-info">
                 <p>castillofereroangela@gmail.com</p>
-
-                <div class="request-form" id="requestForm">
+                 <div class="request-form" id="requestForm">
                     <input type="email" 
                            id="emailInput" 
                            class="email-input" 
