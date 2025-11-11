@@ -2,312 +2,312 @@
 <html lang='en'>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
 
-    <title>ANGELA QUÉ HACES</title>
+    <title>ANGELA QUÉ HACES</title>
 
-    <link rel="icon" href="assets/Iconfactory-Copland-5-A-rose-for-K..32.png">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="assets/Iconfactory-Copland-5-A-rose-for-K..32.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <style>
-        /* DEFINICIÓN DE FUENTE GLOBAL Y TAMAÑO */
-        body {
-            position: relative;
-            /* La parte de overflow: hidden puede ser ajustada si las ventanas se salen mucho */
-            overflow: hidden; 
-            background-size: cover;
-            background-repeat: no-repeat;
+    <style>
+        /* DEFINICIÓN DE FUENTE GLOBAL Y TAMAÑO */
+        body {
+            position: relative;
+            /* La parte de overflow: hidden puede ser ajustada si las ventanas se salen mucho */
+            overflow: hidden; 
+            background-size: cover;
+            background-repeat: no-repeat;
 
-            /* Tipografía a 11pt */
-            font-family: "Times New Roman", Times, serif;
-            font-size: 11pt;
-            line-height: 1.5;
+            /* Tipografía a 11pt */
+            font-family: "Times New Roman", Times, serif;
+            font-size: 11pt;
+            line-height: 1.5;
 
-            /* Margen en ambos lados para imitar el padding: 15px en body */
-            margin: 15px;
-            padding-bottom: 0;
-            height: 100vh;
-        }
+            /* Margen en ambos lados para imitar el padding: 15px en body */
+            margin: 15px;
+            padding-bottom: 0;
+            height: 100vh;
+        }
 
-        /* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
-        .container {
-            max-width: 100%;
-            width: 100%;
-            margin: 0px;
-            padding: 0px;
-        }
+        /* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
+        .container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
 
-        /* ESTILOS DE ENLACES */
-        a {
-            color: #0000ff;
-            letter-spacing: -0.3px;
-            text-decoration: underline;
-        }
+        /* ESTILOS DE ENLACES */
+        a {
+            color: #0000ff;
+            letter-spacing: -0.3px;
+            text-decoration: underline;
+        }
 
-        /* CABECERA Y CONTACTO (ALINEACIÓN DERECHA) */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+        /* CABECERA Y CONTACTO (ALINEACIÓN DERECHA) */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 20px;
+        }
 
-        /* Contenedor principal de la izquierda */
-        .main-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+        /* Contenedor principal de la izquierda */
+        .main-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-        .main-info p {
-            margin: 0;
-            padding: 0;
-            /* Asegurar que el texto dentro de main-info se alinea a la izquierda */
-            text-align: left; 
-        }
+        .main-info p {
+            margin: 0;
+            padding: 0;
+            /* Asegurar que el texto dentro de main-info se alinea a la izquierda */
+            text-align: left; 
+        }
 
 
-        /* Contenedor de contacto y botón (derecha) */
-        .contact-info {
-            text-align: right;
-            line-height: 1.5;
-            display: flex; 
-            flex-direction: column;
-            align-items: flex-end;
-        }
+        /* Contenedor de contacto y botón (derecha) */
+        .contact-info {
+            text-align: right;
+            line-height: 1.5;
+            display: flex; 
+            flex-direction: column;
+            align-items: flex-end;
+        }
 
-        .contact-info p {
-             color: #0000ff;
-             font-size: 1em;
-             margin: 0;
-             white-space: nowrap;
-        }
-        
-        /* === ESTILOS DEL BOTÓN (PORTFOLIO REQUEST) === */
-        .button {
-            align-items: justify;
-            -webkit-appearance: none;
-            appearance: none;
-            border: 0;
-            border-radius: 5px;
-            color: #1a1a1a;
-            cursor: pointer;
-            display: inline-flex;
-            font: inherit;
-            margin-top: 5px; /* Margen para separarlo del email */
-            padding: 2px 2px;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: background-color 0.2s;
-            font-size: 11pt; /* Asegurar que mantiene el tamaño de fuente */
-        }
+        .contact-info p {
+             color: #0000ff;
+             font-size: 1em;
+             margin: 0;
+             white-space: nowrap;
+        }
+        
+        /* === ESTILOS DEL BOTÓN (PORTFOLIO REQUEST) === */
+        .button {
+            align-items: justify;
+            -webkit-appearance: none;
+            appearance: none;
+            border: 0;
+            border-radius: 5px;
+            color: #1a1a1a;
+            cursor: pointer;
+            display: inline-flex;
+            font: inherit;
+            margin-top: 5px; /* Margen para separarlo del email */
+            padding: 2px 2px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background-color 0.2s;
+            font-size: 11pt; /* Asegurar que mantiene el tamaño de fuente */
+        }
 
-        .button-primary {
-            background-color: #8B4513;
-            color: white;
-            font-weight: regular;
-        }
+        .button-primary {
+            background-color: #8B4513;
+            color: white;
+            font-weight: regular;
+        }
 
-        .button-primary:hover {
-            background-color: #A0522D;
-        }
+        .button-primary:hover {
+            background-color: #A0522D;
+        }
 
-        /* === ESTILOS PARA TÍTULO Y TEXTO CENTRAL === */
+        /* === ESTILOS PARA TÍTULO Y TEXTO CENTRAL === */
 
-        .about-container {
-             /* Eliminación de borde y sombra */
-             border: none; 
-             box-shadow: none;
-             padding: 15px;
-             /* Centrado vertical */
-             margin: 100px auto 40px auto; 
-             width: 80%;
-             max-width: 600px;
-             background-color: white;
-             z-index: 1;
-             position: relative;
-        }
+        .about-container {
+             /* Eliminación de borde y sombra */
+             border: none; 
+             box-shadow: none;
+             padding: 15px;
+             /* Centrado vertical */
+             margin: 100px auto 40px auto; 
+             width: 80%;
+             max-width: 600px;
+             background-color: white;
+             z-index: 1;
+             position: relative;
+        }
 
-        .about-text {
-            /* Texto About me! */
-            text-align: justify;
-            margin: 0;
-            font-size: 1em;
-            color: black;
-            line-height: 1.5;
-        }
+        .about-text {
+            /* Texto About me! */
+            text-align: justify;
+            margin: 0;
+            font-size: 1em;
+            color: black;
+            line-height: 1.5;
+        }
 
-        .highlight-blue {
-             /* Color de highlight igual al de los enlaces (#0000ff) */
-             background-color: #0000ff;
-             color: white;
-             padding: 2px 4px;
-             line-height: 1;
-             box-decoration-break: clone;
-        }
+        .highlight-blue {
+             /* Color de highlight igual al de los enlaces (#0000ff) */
+             background-color: #0000ff;
+             color: white;
+             padding: 2px 4px;
+             line-height: 1;
+             box-decoration-break: clone;
+        }
 
-        /* === ESTILOS PARA LAS VENTANAS FLOTANTES === */
-        .window {
-            position: absolute;
-            min-width: 150px;
-            min-height: 100px;
+        /* === ESTILOS PARA LAS VENTANAS FLOTANTES === */
+        .window {
+            position: absolute;
+            min-width: 150px;
+            min-height: 100px;
 
-            background-color: #f0f0f0;
-            border: 0px solid #333;
-            box-shadow: 0px 0px 0px #888;
-            z-index: 100;
+            background-color: #f0f0f0;
+            border: 0px solid #333;
+            box-shadow: 0px 0px 0px #888;
+            z-index: 100;
 
-            resize: none;
-            overflow: visible;
-            cursor: pointer;
+            resize: none;
+            overflow: visible;
+            cursor: pointer;
 
-            display: flex;
-            flex-direction: column;
-        }
+            display: flex;
+            flex-direction: column;
+        }
 
-        .window-body {
-            padding: 0;
-            flex-grow: 1;
-            overflow: hidden;
-            cursor: move;
-        }
+        .window-body {
+            padding: 0;
+            flex-grow: 1;
+            overflow: hidden;
+            cursor: move;
+        }
 
-        .window-body img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .window-body img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        .window-footer {
-            cursor: move;
-            background-color: #f0f0f0;
-            color: #f0f0f0;
-            padding: 1px 1px;
-            border-top: 0px solid #333;
-            user-select: none;
-            flex-shrink: 0;
-            text-align: left;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        .window-footer {
+            cursor: move;
+            background-color: #f0f0f0;
+            color: #f0f0f0;
+            padding: 1px 1px;
+            border-top: 0px solid #333;
+            user-select: none;
+            flex-shrink: 0;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-        .filename-text {
-            color: #8B4513;
-            font-weight: regular;
-            margin-right: 5px;
-        }
+        .filename-text {
+            color: #8B4513;
+            font-weight: regular;
+            margin-right: 5px;
+        }
 
-        .dimensions-text {
-            color: #000;
-            font-style: italic;
-        }
+        .dimensions-text {
+            color: #000;
+            font-style: italic;
+        }
 
-        .resize-handle {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 10px;
-            height: 10px;
-            background: #0d0d0d;
-            cursor: nwse-resize;
-            z-index: 10;
-        }
+        .resize-handle {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: #0d0d0d;
+            cursor: nwse-resize;
+            z-index: 10;
+        }
 
-        .active-drag, .active-resize {
-            z-index: 1000;
-        }
+        .active-drag, .active-resize {
+            z-index: 1000;
+        }
 
-        /* --- NUEVOS ESTILOS A AÑADIR EN <style> --- */
+        /* --- NUEVOS ESTILOS A AÑADIR EN <style> --- */
 
 /* Contenedor flexible para alinear el input y el botón */
 .request-form {
-    display: flex;
-    align-items: bottom; /* Centrar verticalmente el input y el botón */
-    margin-top: 1px; /* Mantiene la separación con el email anterior */
-    transition: width 0.3s;
+    display: flex;
+    align-items: bottom; /* Centrar verticalmente el input y el botón */
+    margin-top: 1px; /* Mantiene la separación con el email anterior */
+    transition: width 0.3s;
 }
 
 /* Estilos para el campo de correo (inicialmente oculto o pequeño) */
 .email-input {
-    border: 0.5px solid #333;
-    background-color: white;
-    color: black;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 11pt;
-    padding: 2px 4px;
-    margin-right: 10px; /* Espacio entre el input y el botón */
-    width: 0; /* Empieza oculto */
-    opacity: 0;
-    visibility: hidden;
-    transition: width 0.3s, opacity 0.3s;
-    box-sizing: border-box; /* Asegura que el padding no afecte el width total */
-    height: 100%; /* Igualar la altura del botón */
+    border: 0.5px solid #333;
+    background-color: white;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    padding: 2px 4px;
+    margin-right: 10px; /* Espacio entre el input y el botón */
+    width: 0; /* Empieza oculto */
+    opacity: 0;
+    visibility: hidden;
+    transition: width 0.3s, opacity 0.3s;
+    box-sizing: border-box; /* Asegura que el padding no afecte el width total */
+    height: 100%; /* Igualar la altura del botón */
 }
 
 /* Clase para mostrar el campo de correo */
 .email-input.visible {
-    width: 200px; /* Ancho deseado para el campo de correo */
-    opacity: 1;
-    visibility: visible;
+    width: 200px; /* Ancho deseado para el campo de correo */
+    opacity: 1;
+    visibility: visible;
 }
-    </style>
+    </style>
 
 </head>
 
 <body>
-    <main class="container">
+    <main class="container">
 
-        <header class="header">
-            <div class="main-info">
-                <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
-                Jewelry / Fashion Accessories designer
-                <br>
-                Based in Barcelona
-            </div>
-
-            <div class="contact-info">
-                <p>castillofereroangela@gmail.com</p>
-                 <div class="request-form" id="requestForm">
-                    <input type="email" 
-                           id="emailInput" 
-                           class="email-input" 
-                           placeholder="your@email.com" 
-                           oninput="checkEmailStatus()" 
-                           required>
-
-                    <button class="button button-primary" 
-                            id="portfolioButton" 
-                            onclick="handlePortfolioRequest()">
-                        REQUEST FULL PORTFOLIO
-                    </button>
-                </div>
+        <header class="header">
+            <div class="main-info">
+                <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
+                Jewelry / Fashion Accessories designer
+                <br>
+                Based in Barcelona
             </div>
-        </header>
 
-       <div class="about-container">
-            <p class="about-text" id="about-me-text">
-                Ángela is a designer focused on creating narratives through material culture.
-                Her work explores the intersection between digital craftsmanship and traditional
-                techniques, creating fashion accessories with a unique approach.
-                <br>
-                Throughout her career, she has worked on <span class="highlight-blue">innovative parametric jewelry projects</span>
-                and has participated in <span class="highlight-blue">international design exhibitions</span>.
-                Her fascination with materials and their transformation drives her to constantly
-                seek new forms of expression.
-            </p>
+            <div class="contact-info">
+                                <span style="color: #0000ff; font-size: 1em; white-space: nowrap;">castillofereroangela@gmail.com</span>
+                <br>
+                 <div class="request-form" id="requestForm">
+                    <input type="email" 
+                           id="emailInput" 
+                           class="email-input" 
+                           placeholder="your@email.com" 
+                           oninput="checkEmailStatus()" 
+                           required>
 
-            <pre style="font-family: monospace; font-size: 8px; line-height: 1;">
+                    <button class="button button-primary" 
+                            id="portfolioButton" 
+                            onclick="handlePortfolioRequest()">
+                        REQUEST FULL PORTFOLIO
+                    </button>
+                </div>
+            </div>
+                    </header>
+
+       <div class="about-container">
+            <p class="about-text" id="about-me-text">
+                Ángela es una designer enfocada en crear narrativas a través de la cultura material.
+                Su trabajo explora la intersección entre digital craftsmanship y traditional
+                techniques, creando fashion accessories con un unique approach.
+                <br>
+                A lo largo de su carrera, ha trabajado en <span class="highlight-blue">innovative parametric jewelry projects</span>
+                y ha participado en <span class="highlight-blue">international design exhibitions</span>.
+                Su fascinación con materials y su transformación la lleva a constantemente
+                buscar nuevas formas de expresión.
+            </p>
+
+            <pre style="font-family: monospace; font-size: 8px; line-height: 1;">
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠀⠀⣀⠤⣤⣤⣠⣀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠤⢢⣒⣃⡃⠓⢢⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠒⡄⠀⡜⣠⠏⠁⠀⠀⠉⠙⠓⠦⣄⢀⣠⣴⠯⠚⠋⠉⠈⠈⢹⡆⠀⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠒⠁⣰⢡⢯⢀⢀⢀⢀⣀⠤⠔⢔⣼⣿⡯⣄⡀⡀⠀⢀⢀⠔⢩⠇⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠈⢧⣅⣁⣁⣁⡤⠦⣚⡽⢻⢽⡣⡙⠮⣬⣩⣁⣁⡤⠟⡀⡔⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -339,442 +339,442 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            </pre>
-            </div>
-
-        <div class="highlights-container">
-
-            <div class="highlight-item window" id="item-1">
-                <div class="window-header"></div>
-                <div class="window-body">
-                    <img id="img-1"
-                        src="https://d2w9rnfcy7mm78.cloudfront.net/40812628/original_172a35df3b3170e2a010826f4a9fe9b0.png?1762184347?bc=0"
-                        alt="Destacado 1: Twist Capsule">
-                </div>
-                <div class="window-footer">
-                    <span class="filename-text">IMG_0894.jpg</span>
-                    <span class="dimensions-text" id="dims-1"></span>
-                </div>
-                <div class="resize-handle"></div>
-            </div>
-
-            <div class="highlight-item window" id="item-2">
-                <div class="window-header"></div>
-                <div class="window-body">
-                    <img id="img-2"
-                        src="https://d2w9rnfcy7mm78.cloudfront.net/40812625/original_85f18373dedff59799d870842540b485.png?1762184345?bc=0"
-                        alt="Destacado 2: Twist Capsule">
-                </div>
-                <div class="window-footer">
-                    <span class="filename-text">SAND-II.png</span>
-                    <span class="dimensions-text" id="dims-2"></span>
-                </div>
-                <div class="resize-handle"></div>
-            </div>
-
-            <div class="highlight-item window" id="item-3">
-                <div class="window-header"></div>
-                <div class="window-body">
-                    <img id="img-3"
-                        src="https://d2w9rnfcy7mm78.cloudfront.net/40812631/original_19f7e92dfe38cfa2b98cf28f4ba0f9c4.png"
-                        alt="Destacado 3: Twist Capsule">
-                </div>
-                <div class="window-footer">
-                    <span class="filename-text">screenshot-2025-11-10.pdf.png</span>
-                    <span class="dimensions-text" id="dims-3"></span>
-                </div>
-                <div class="resize-handle"></div>
-            </div>
-
-            <div class="highlight-item window" id="item-4">
-                <div class="window-header"></div>
-                <div class="window-body">
-                    <img id="img-4"
-                        src="https://d2w9rnfcy7mm78.cloudfront.net/41008340/original_f09bba8bf0d0c4a387ebd2a1037c6a09.png"
-                        alt="Placeholder 4">
-                </div>
-                <div class="window-footer">
-                    <span class="filename-text">twistcapsule-3.png</span>
-                    <span class="dimensions-text" id="dims-4"></span>
-                </div>
-                <div class="resize-handle"></div>
-            </div>
-
-            <div class="highlight-item window" id="item-5">
-                <div class="window-header"></div>
-                <div class="window-body">
-                    <img id="img-5"
-                        src="https://d2w9rnfcy7mm78.cloudfront.net/41008348/original_6bb10a690c5a8dc9bf8e60f533634292.png"
-                        alt="Placeholder 5">
-                </div>
-                <div class="window-footer">
-                    <span class="filename-text">twistcapsule-2.png</span>
-                    <span class="dimensions-text" id="dims-5"></span>
-                </div>
-                <div class="resize-handle"></div>
-            </div>
-
-        </div>
-    </main>
-
-    <script>
-        const draggableElements = document.querySelectorAll('.window');
-
-        let activeItem = null;
-        let isResizing = false;
-
-        let currentX, currentY;
-        let initialX, initialY;
-        let xOffset, yOffset;
-
-        let initialWidth, initialHeight;
-        let initialRatio;
-        let highestZIndex = 100;
-
-        const FOOTER_HEIGHT = 35; 
-        const BODY_MARGIN = 15; // El margen del body definido en CSS
-
-        // ======================================================================
-        // FUNCIÓN PARA CALCULAR LA POSICIÓN INICIAL (AJUSTADA AL CENTRO DEL ABOUT ME)
-        // ======================================================================
-        function randomizeWindowPosition(windowElement) {
-            const aboutContainer = document.querySelector('.about-container');
-
-            if (!aboutContainer) return; // Si no hay About, salimos
-
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-
-            const elementWidth = windowElement.offsetWidth;
-            const elementHeight = windowElement.offsetHeight;
-
-            // 1. Obtener la posición y dimensiones del about-container
-            const aboutRect = aboutContainer.getBoundingClientRect();
-            
-            // Calcular el centro del about-container
-            const aboutCenterX = aboutRect.left + (aboutRect.width / 2);
-            const aboutCenterY = aboutRect.top + (aboutRect.height / 2);
-
-            // 2. Calcular la posición base para que el centro de la ventana coincida con el centro del about
-            let baseX = aboutCenterX - (elementWidth / 2);
-            let baseY = aboutCenterY - (elementHeight / 2);
-
-            // 3. Definir un rango de dispersión (± 400px para mayor separación lateral).
-            const scatterRange = 600; 
-            const randomOffsetX = Math.random() * scatterRange - (scatterRange / 3); // De -200 a +200
-            const randomOffsetY = Math.random() * scatterRange - (scatterRange / 3); // De -200 a +200
-
-            let targetX = baseX + randomOffsetX;
-            let targetY = baseY + randomOffsetY;
-
-            // 4. Aplicar límites de borde (Asegurar que la ventana no se salga)
-            const MIN_LEFT = BODY_MARGIN;
-            const MIN_TOP = BODY_MARGIN;
-            const MAX_LEFT = viewportWidth - elementWidth - BODY_MARGIN;
-            const MAX_TOP = viewportHeight - elementHeight - BODY_MARGIN;
-            
-            // Limitar la posición
-            targetX = Math.min(Math.max(targetX, MIN_LEFT), MAX_LEFT);
-            targetY = Math.min(Math.max(targetY, MIN_TOP), MAX_TOP);
-            
-            // Aplicar la posición
-            windowElement.style.top = targetY + 'px';
-            windowElement.style.left = targetX + 'px';
-        }
-
-        // Función para actualizar las dimensiones en el footer del texto
-        function updateDimensionsText(windowElement) {
-            const currentWidth = Math.round(windowElement.offsetWidth);
-            // El alto de la imagen es el alto total menos la altura fija del footer
-            const currentBodyHeight = Math.round(windowElement.offsetHeight - FOOTER_HEIGHT);
-
-            const dimensionsSpan = windowElement.querySelector('.dimensions-text');
-            if (dimensionsSpan) {
-                dimensionsSpan.textContent = `(${currentWidth}x${currentBodyHeight})`;
-            }
-        }
-
-        // Función para establecer el tamaño inicial y la proporción
-        function initializeWindow(windowElement) {
-            const img = windowElement.querySelector('img');
-
-            const loadHandler = () => {
-                setInitialDimensions(windowElement, img);
-                // Llamamos a randomizeWindowPosition aquí para obtener la posición centrada
-                randomizeWindowPosition(windowElement); 
-            };
-
-            if (img && img.complete) {
-                loadHandler();
-            } else if (img) {
-                img.onload = loadHandler;
-            } else {
-                setInitialDimensions(windowElement, null);
-                randomizeWindowPosition(windowElement);
-            }
-        }
-
-        function setInitialDimensions(windowElement, img) {
-            // Tamaño inicial aleatorio (pero proporcional)
-            const MIN_WIDTH = 200;
-            const MAX_WIDTH = 400;
+            </pre>
+            </div>
+
+        <div class="highlights-container">
+
+            <div class="highlight-item window" id="item-1">
+                <div class="window-header"></div>
+                <div class="window-body">
+                    <img id="img-1"
+                        src="https://d2w9rnfcy7mm78.cloudfront.net/40812628/original_172a35df3b3170e2a010826f4a9fe9b0.png?1762184347?bc=0"
+                        alt="Destacado 1: Twist Capsule">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">IMG_0894.jpg</span>
+                    <span class="dimensions-text" id="dims-1"></span>
+                </div>
+                <div class="resize-handle"></div>
+            </div>
+
+            <div class="highlight-item window" id="item-2">
+                <div class="window-header"></div>
+                <div class="window-body">
+                    <img id="img-2"
+                        src="https://d2w9rnfcy7mm78.cloudfront.net/40812625/original_85f18373dedff59799d870842540b485.png?1762184345?bc=0"
+                        alt="Destacado 2: Twist Capsule">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">SAND-II.png</span>
+                    <span class="dimensions-text" id="dims-2"></span>
+                </div>
+                <div class="resize-handle"></div>
+            </div>
+
+            <div class="highlight-item window" id="item-3">
+                <div class="window-header"></div>
+                <div class="window-body">
+                    <img id="img-3"
+                        src="https://d2w9rnfcy7mm78.cloudfront.net/40812631/original_19f7e92dfe38cfa2b98cf28f4ba0f9c4.png"
+                        alt="Destacado 3: Twist Capsule">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">screenshot-2025-11-10.pdf.png</span>
+                    <span class="dimensions-text" id="dims-3"></span>
+                </div>
+                <div class="resize-handle"></div>
+            </div>
+
+            <div class="highlight-item window" id="item-4">
+                <div class="window-header"></div>
+                <div class="window-body">
+                    <img id="img-4"
+                        src="https://d2w9rnfcy7mm78.cloudfront.net/41008340/original_f09bba8bf0d0c4a387ebd2a1037c6a09.png"
+                        alt="Placeholder 4">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">twistcapsule-3.png</span>
+                    <span class="dimensions-text" id="dims-4"></span>
+                </div>
+                <div class="resize-handle"></div>
+            </div>
+
+            <div class="highlight-item window" id="item-5">
+                <div class="window-header"></div>
+                <div class="window-body">
+                    <img id="img-5"
+                        src="https://d2w9rnfcy7mm78.cloudfront.net/41008348/original_6bb10a690c5a8dc9bf8e60f533634292.png"
+                        alt="Placeholder 5">
+                </div>
+                <div class="window-footer">
+                    <span class="filename-text">twistcapsule-2.png</span>
+                    <span class="dimensions-text" id="dims-5"></span>
+                </div>
+                <div class="resize-handle"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const draggableElements = document.querySelectorAll('.window');
+
+        let activeItem = null;
+        let isResizing = false;
+
+        let currentX, currentY;
+        let initialX, initialY;
+        let xOffset, yOffset;
+
+        let initialWidth, initialHeight;
+        let initialRatio;
+        let highestZIndex = 100;
+
+        const FOOTER_HEIGHT = 35; 
+        const BODY_MARGIN = 15; // El margen del body definido en CSS
+
+        // ======================================================================
+        // FUNCIÓN PARA CALCULAR LA POSICIÓN INICIAL (AJUSTADA AL CENTRO DEL ABOUT ME)
+        // ======================================================================
+        function randomizeWindowPosition(windowElement) {
+            const aboutContainer = document.querySelector('.about-container');
+
+            if (!aboutContainer) return; // Si no hay About, salimos
+
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            const elementWidth = windowElement.offsetWidth;
+            const elementHeight = windowElement.offsetHeight;
+
+            // 1. Obtener la posición y dimensiones del about-container
+            const aboutRect = aboutContainer.getBoundingClientRect();
+            
+            // Calcular el centro del about-container
+            const aboutCenterX = aboutRect.left + (aboutRect.width / 2);
+            const aboutCenterY = aboutRect.top + (aboutRect.height / 2);
+
+            // 2. Calcular la posición base para que el centro de la ventana coincida con el centro del about
+            let baseX = aboutCenterX - (elementWidth / 2);
+            let baseY = aboutCenterY - (elementHeight / 2);
+
+            // 3. Definir un rango de dispersión (± 400px para mayor separación lateral).
+            const scatterRange = 600; 
+            const randomOffsetX = Math.random() * scatterRange - (scatterRange / 3); // De -200 a +200
+            const randomOffsetY = Math.random() * scatterRange - (scatterRange / 3); // De -200 a +200
+
+            let targetX = baseX + randomOffsetX;
+            let targetY = baseY + randomOffsetY;
+
+            // 4. Aplicar límites de borde (Asegurar que la ventana no se salga)
+            const MIN_LEFT = BODY_MARGIN;
+            const MIN_TOP = BODY_MARGIN;
+            const MAX_LEFT = viewportWidth - elementWidth - BODY_MARGIN;
+            const MAX_TOP = viewportHeight - elementHeight - BODY_MARGIN;
+            
+            // Limitar la posición
+            targetX = Math.min(Math.max(targetX, MIN_LEFT), MAX_LEFT);
+            targetY = Math.min(Math.max(targetY, MIN_TOP), MAX_TOP);
+            
+            // Aplicar la posición
+            windowElement.style.top = targetY + 'px';
+            windowElement.style.left = targetX + 'px';
+        }
+
+        // Función para actualizar las dimensiones en el footer del texto
+        function updateDimensionsText(windowElement) {
+            const currentWidth = Math.round(windowElement.offsetWidth);
+            // El alto de la imagen es el alto total menos la altura fija del footer
+            const currentBodyHeight = Math.round(windowElement.offsetHeight - FOOTER_HEIGHT);
+
+            const dimensionsSpan = windowElement.querySelector('.dimensions-text');
+            if (dimensionsSpan) {
+                dimensionsSpan.textContent = `(${currentWidth}x${currentBodyHeight})`;
+            }
+        }
+
+        // Función para establecer el tamaño inicial y la proporción
+        function initializeWindow(windowElement) {
+            const img = windowElement.querySelector('img');
+
+            const loadHandler = () => {
+                setInitialDimensions(windowElement, img);
+                // Llamamos a randomizeWindowPosition aquí para obtener la posición centrada
+                randomizeWindowPosition(windowElement); 
+            };
+
+            if (img && img.complete) {
+                loadHandler();
+            } else if (img) {
+                img.onload = loadHandler;
+            } else {
+                setInitialDimensions(windowElement, null);
+                randomizeWindowPosition(windowElement);
+            }
+        }
+
+        function setInitialDimensions(windowElement, img) {
+            // Tamaño inicial aleatorio (pero proporcional)
+            const MIN_WIDTH = 200;
+            const MAX_WIDTH = 400;
 
-            // Generar un ancho aleatorio entre 200px y 400px
-            const randomWidth = Math.random() * (MAX_WIDTH - MIN_WIDTH) + MIN_WIDTH;
-
-            let ratio = 1;
-            if (img && img.naturalWidth && img.naturalHeight) {
-                ratio = img.naturalWidth / img.naturalHeight;
-            }
+            // Generar un ancho aleatorio entre 200px y 400px
+            const randomWidth = Math.random() * (MAX_WIDTH - MIN_WIDTH) + MIN_WIDTH;
+
+            let ratio = 1;
+            if (img && img.naturalWidth && img.naturalHeight) {
+                ratio = img.naturalWidth / img.naturalHeight;
+            }
 
-            const targetWidth = randomWidth;
-            const targetHeight = targetWidth / ratio;
-
-            windowElement.style.width = targetWidth + 'px';
-            windowElement.style.height = (targetHeight + FOOTER_HEIGHT) + 'px';
-
-            windowElement.setAttribute('data-aspect-ratio', ratio);
-
-            updateDimensionsText(windowElement);
-        }
-
-        // 1. Configuración de escuchadores de eventos
-        draggableElements.forEach(item => {
-            const resizeHandle = item.querySelector('.resize-handle');
-
-            initializeWindow(item);
-
-            item.addEventListener('mousedown', startInteraction);
-            item.addEventListener('touchstart', startInteraction);
-
-            if (resizeHandle) {
-                resizeHandle.addEventListener('mousedown', resizeStart);
-                resizeHandle.addEventListener('touchstart', resizeStart);
-            }
-        });
-
-        // Eventos globales en el documento
-        document.addEventListener('mouseup', dragEnd);
-        document.addEventListener('touchend', dragEnd);
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('touchmove', drag);
-
-        // Función para elevar la ventana clicada
-        function elevateWindow(clickedWindow) {
-            highestZIndex++;
-            clickedWindow.style.zIndex = highestZIndex;
-        }
-
-        /* ==================== INICIO DE INTERACCIÓN (Arrastre) ==================== */
-
-        function startInteraction(e) {
-            // Ignorar el clic si se hace en el handle de redimensión, botón o enlaces
-            if (e.target.classList.contains('resize-handle') || e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
-                return;
-            }
-
-            e.preventDefault();
-            isResizing = false;
-
-            const isTouch = e.type.includes('touch');
-            const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
-            const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
-
-            activeItem = this;
-            activeItem.classList.add('active-drag');
-
-            elevateWindow(activeItem);
-
-            const rect = activeItem.getBoundingClientRect();
-
-            xOffset = eventClientX - rect.left;
-            yOffset = eventClientY - rect.top;
-
-            initialX = eventClientX;
-            initialY = eventClientY;
-        }
-
-        /* ==================== INICIO DE REDIMENSIÓN ==================== */
-
-        function resizeStart(e) {
-            e.preventDefault();
-
-            isResizing = true;
-            const isTouch = e.type.includes('touch');
-
-            activeItem = this.closest('.window');
-            activeItem.classList.add('active-resize');
-            elevateWindow(activeItem);
-
-            initialX = isTouch ? e.touches[0].clientX : e.clientX;
-            initialY = isTouch ? e.touches[0].clientY : e.clientY;
-
-            initialWidth = activeItem.offsetWidth;
-            initialHeight = activeItem.offsetHeight;
-
-            initialRatio = parseFloat(activeItem.getAttribute('data-aspect-ratio')) || (initialWidth / (initialHeight - FOOTER_HEIGHT));
-        }
-
-
-        /* ==================== FUNCIÓN DE MOVIMIENTO (DRAG/RESIZE) ==================== */
-
-        function drag(e) {
-            if (!activeItem) return;
-            e.preventDefault();
-
-            const isTouch = e.type.includes('touch');
-            const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
-            const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
-
-            const viewportWidth = window.innerWidth; 
-            const viewportHeight = window.innerHeight; 
-            const itemWidth = activeItem.offsetWidth;
-            const itemHeight = activeItem.offsetHeight;
-            const MIN_LEFT = BODY_MARGIN;
-            const MIN_TOP = BODY_MARGIN;
-
-            if (isResizing) {
-                const deltaX = eventClientX - initialX;
-                const deltaY = eventClientY - initialY;
-
-                let newWidth, newBodyHeight;
-
-                if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                    // Guiar por el ancho
-                    newWidth = Math.max(initialWidth + deltaX, 150);
-                    newBodyHeight = newWidth / initialRatio;
-                } else {
-                    // Guiar por el alto
-                    let newHeight = Math.max(initialHeight + deltaY, 100);
-                    newBodyHeight = newHeight - FOOTER_HEIGHT;
-                    if (newBodyHeight > 0) {
-                        newWidth = newBodyHeight * initialRatio;
-                    } else {
-                        newBodyHeight = 100 - FOOTER_HEIGHT; // Mínimo 100px de altura de ventana
-                        newWidth = newBodyHeight * initialRatio;
-                    }
-                }
-
-                let newHeight = newBodyHeight + FOOTER_HEIGHT;
-
-                if (newWidth >= 150 && newHeight >= 100) {
-                     // Limitar el tamaño de redimensión para no salirse de la web
-                    let currentLeft = parseFloat(activeItem.style.left) || 0;
-                    let currentTop = parseFloat(activeItem.style.top) || 0;
-
-                    let maxPossibleWidth = viewportWidth - currentLeft - BODY_MARGIN;
-                    let maxPossibleHeight = viewportHeight - currentTop - BODY_MARGIN;
-
-                    if (newWidth > maxPossibleWidth) {
-                         newWidth = maxPossibleWidth;
-                         newBodyHeight = newWidth / initialRatio;
-                         newHeight = newBodyHeight + FOOTER_HEIGHT;
-                    }
-
-                    if (newHeight > maxPossibleHeight) {
-                         newHeight = maxPossibleHeight;
-                         newBodyHeight = newHeight - FOOTER_HEIGHT;
-                         newWidth = newBodyHeight * initialRatio;
-                    }
-
-                    activeItem.style.width = newWidth + 'px';
-                    activeItem.style.height = newHeight + 'px';
-                    updateDimensionsText(activeItem);
-                }
-
-            } else {
-                // Modo Arrastre
-                currentX = eventClientX - xOffset;
-                currentY = eventClientY - yOffset;
-
-                // Asegurarse de que no se salga de la web
-                const maxX = viewportWidth - itemWidth - BODY_MARGIN;
-                const maxY = viewportHeight - itemHeight - BODY_MARGIN;
-
-                // Aplicar límites
-                currentX = Math.min(Math.max(currentX, MIN_LEFT), maxX);
-                currentY = Math.min(Math.max(currentY, MIN_TOP), maxY);
-
-                activeItem.style.left = currentX + 'px';
-                activeItem.style.top = currentY + 'px';
-            }
-        }
-
-
-        /* ==================== FUNCIÓN DE FINALIZACIÓN ==================== */
-
-        function dragEnd(e) {
-            if (!activeItem) return;
-
-            activeItem.classList.remove('active-drag', 'active-resize');
-            updateDimensionsText(activeItem);
-
-            activeItem = null;
-            isResizing = false;
-        }
-
-        // Llamada inicial para asegurar que todas las imágenes se inicialicen
-        window.addEventListener('load', () => {
-             draggableElements.forEach(item => initializeWindow(item));
-        });
-
-        // Al redimensionar la ventana del navegador, ajusta la posición de las ventanas abiertas.
-        window.addEventListener('resize', () => {
-            draggableElements.forEach(item => {
-                randomizeWindowPosition(item); // Reajusta los límites
-            });
-        });
-
-        // --- NUEVAS FUNCIONES A AÑADIR EN <script> ---
+            const targetWidth = randomWidth;
+            const targetHeight = targetWidth / ratio;
+
+            windowElement.style.width = targetWidth + 'px';
+            windowElement.style.height = (targetHeight + FOOTER_HEIGHT) + 'px';
+
+            windowElement.setAttribute('data-aspect-ratio', ratio);
+
+            updateDimensionsText(windowElement);
+        }
+
+        // 1. Configuración de escuchadores de eventos
+        draggableElements.forEach(item => {
+            const resizeHandle = item.querySelector('.resize-handle');
+
+            initializeWindow(item);
+
+            item.addEventListener('mousedown', startInteraction);
+            item.addEventListener('touchstart', startInteraction);
+
+            if (resizeHandle) {
+                resizeHandle.addEventListener('mousedown', resizeStart);
+                resizeHandle.addEventListener('touchstart', resizeStart);
+            }
+        });
+
+        // Eventos globales en el documento
+        document.addEventListener('mouseup', dragEnd);
+        document.addEventListener('touchend', dragEnd);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('touchmove', drag);
+
+        // Función para elevar la ventana clicada
+        function elevateWindow(clickedWindow) {
+            highestZIndex++;
+            clickedWindow.style.zIndex = highestZIndex;
+        }
+
+        /* ==================== INICIO DE INTERACCIÓN (Arrastre) ==================== */
+
+        function startInteraction(e) {
+            // Ignorar el clic si se hace en el handle de redimensión, botón o enlaces
+            if (e.target.classList.contains('resize-handle') || e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
+                return;
+            }
+
+            e.preventDefault();
+            isResizing = false;
+
+            const isTouch = e.type.includes('touch');
+            const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
+            const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
+
+            activeItem = this;
+            activeItem.classList.add('active-drag');
+
+            elevateWindow(activeItem);
+
+            const rect = activeItem.getBoundingClientRect();
+
+            xOffset = eventClientX - rect.left;
+            yOffset = eventClientY - rect.top;
+
+            initialX = eventClientX;
+            initialY = eventClientY;
+        }
+
+        /* ==================== INICIO DE REDIMENSIÓN ==================== */
+
+        function resizeStart(e) {
+            e.preventDefault();
+
+            isResizing = true;
+            const isTouch = e.type.includes('touch');
+
+            activeItem = this.closest('.window');
+            activeItem.classList.add('active-resize');
+            elevateWindow(activeItem);
+
+            initialX = isTouch ? e.touches[0].clientX : e.clientX;
+            initialY = isTouch ? e.touches[0].clientY : e.clientY;
+
+            initialWidth = activeItem.offsetWidth;
+            initialHeight = activeItem.offsetHeight;
+
+            initialRatio = parseFloat(activeItem.getAttribute('data-aspect-ratio')) || (initialWidth / (initialHeight - FOOTER_HEIGHT));
+        }
+
+
+        /* ==================== FUNCIÓN DE MOVIMIENTO (DRAG/RESIZE) ==================== */
+
+        function drag(e) {
+            if (!activeItem) return;
+            e.preventDefault();
+
+            const isTouch = e.type.includes('touch');
+            const eventClientX = isTouch ? e.touches[0].clientX : e.clientX;
+            const eventClientY = isTouch ? e.touches[0].clientY : e.clientY;
+
+            const viewportWidth = window.innerWidth; 
+            const viewportHeight = window.innerHeight; 
+            const itemWidth = activeItem.offsetWidth;
+            const itemHeight = activeItem.offsetHeight;
+            const MIN_LEFT = BODY_MARGIN;
+            const MIN_TOP = BODY_MARGIN;
+
+            if (isResizing) {
+                const deltaX = eventClientX - initialX;
+                const deltaY = eventClientY - initialY;
+
+                let newWidth, newBodyHeight;
+
+                if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                    // Guiar por el ancho
+                    newWidth = Math.max(initialWidth + deltaX, 150);
+                    newBodyHeight = newWidth / initialRatio;
+                } else {
+                    // Guiar por el alto
+                    let newHeight = Math.max(initialHeight + deltaY, 100);
+                    newBodyHeight = newHeight - FOOTER_HEIGHT;
+                    if (newBodyHeight > 0) {
+                        newWidth = newBodyHeight * initialRatio;
+                    } else {
+                        newBodyHeight = 100 - FOOTER_HEIGHT; // Mínimo 100px de altura de ventana
+                        newWidth = newBodyHeight * initialRatio;
+                    }
+                }
+
+                let newHeight = newBodyHeight + FOOTER_HEIGHT;
+
+                if (newWidth >= 150 && newHeight >= 100) {
+                     // Limitar el tamaño de redimensión para no salirse de la web
+                    let currentLeft = parseFloat(activeItem.style.left) || 0;
+                    let currentTop = parseFloat(activeItem.style.top) || 0;
+
+                    let maxPossibleWidth = viewportWidth - currentLeft - BODY_MARGIN;
+                    let maxPossibleHeight = viewportHeight - currentTop - BODY_MARGIN;
+
+                    if (newWidth > maxPossibleWidth) {
+                         newWidth = maxPossibleWidth;
+                         newBodyHeight = newWidth / initialRatio;
+                         newHeight = newBodyHeight + FOOTER_HEIGHT;
+                    }
+
+                    if (newHeight > maxPossibleHeight) {
+                         newHeight = maxPossibleHeight;
+                         newBodyHeight = newHeight - FOOTER_HEIGHT;
+                         newWidth = newBodyHeight * initialRatio;
+                    }
+
+                    activeItem.style.width = newWidth + 'px';
+                    activeItem.style.height = newHeight + 'px';
+                    updateDimensionsText(activeItem);
+                }
+
+            } else {
+                // Modo Arrastre
+                currentX = eventClientX - xOffset;
+                currentY = eventClientY - yOffset;
+
+                // Asegurarse de que no se salga de la web
+                const maxX = viewportWidth - itemWidth - BODY_MARGIN;
+                const maxY = viewportHeight - itemHeight - BODY_MARGIN;
+
+                // Aplicar límites
+                currentX = Math.min(Math.max(currentX, MIN_LEFT), maxX);
+                currentY = Math.min(Math.max(currentY, MIN_TOP), maxY);
+
+                activeItem.style.left = currentX + 'px';
+                activeItem.style.top = currentY + 'px';
+            }
+        }
+
+
+        /* ==================== FUNCIÓN DE FINALIZACIÓN ==================== */
+
+        function dragEnd(e) {
+            if (!activeItem) return;
+
+            activeItem.classList.remove('active-drag', 'active-resize');
+            updateDimensionsText(activeItem);
+
+            activeItem = null;
+            isResizing = false;
+        }
+
+        // Llamada inicial para asegurar que todas las imágenes se inicialicen
+        window.addEventListener('load', () => {
+             draggableElements.forEach(item => initializeWindow(item));
+        });
+
+        // Al redimensionar la ventana del navegador, ajusta la posición de las ventanas abiertas.
+        window.addEventListener('resize', () => {
+            draggableElements.forEach(item => {
+                randomizeWindowPosition(item); // Reajusta los límites
+            });
+        });
+
+        // --- NUEVAS FUNCIONES A AÑADIR EN <script> ---
 
 // 1. Maneja el estado inicial y el envío final
 function handlePortfolioRequest() {
-    const emailInput = document.getElementById('emailInput');
-    const portfolioButton = document.getElementById('portfolioButton');
-    const recipientEmail = "ancelacastilloferrero@gmail.com";
-    
-    // Si el input está visible y el correo es válido (o tiene algún contenido)
-    if (emailInput.classList.contains('visible') && emailInput.value.length > 0) {
-        
-        // Crear el enlace mailto:
-        // El cuerpo del correo incluirá el email de la persona para que lo veas fácilmente.
-        const subject = "Solicitud de Portfolio Completo";
-        const body = `Hola, me gustaría solicitar el portfolio completo. Mi correo es: ${emailInput.value}`;
-        
-        const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        
-        // Abrir el cliente de correo del usuario
-        window.location.href = mailtoLink;
-        
-        // Opcional: Ocultar el input y restablecer el botón después del envío (aunque el usuario ya estará en su cliente de correo)
-        // emailInput.classList.remove('visible');
-        // emailInput.value = '';
-        // portfolioButton.textContent = "REQUEST FULL PORTFOLIO";
-        
-    } else {
-        // Estado inicial: Muestra el campo de correo
-        emailInput.classList.add('visible');
-        emailInput.focus(); // Pone el cursor en el campo
-        
-        // Comprueba si ya está listo para "SEND MAIL" (en caso de que el usuario haga clic de nuevo)
-        checkEmailStatus();
-    }
+    const emailInput = document.getElementById('emailInput');
+    const portfolioButton = document.getElementById('portfolioButton');
+    const recipientEmail = "ancelacastilloferrero@gmail.com";
+    
+    // Si el input está visible y el correo es válido (o tiene algún contenido)
+    if (emailInput.classList.contains('visible') && emailInput.value.length > 0) {
+        
+        // Crear el enlace mailto:
+        // El cuerpo del correo incluirá el email de la persona para que lo veas fácilmente.
+        const subject = "Solicitud de Portfolio Completo";
+        const body = `Hola, me gustaría solicitar el portfolio completo. Mi correo es: ${emailInput.value}`;
+        
+        const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        
+        // Abrir el cliente de correo del usuario
+        window.location.href = mailtoLink;
+        
+        // Opcional: Ocultar el input y restablecer el botón después del envío (aunque el usuario ya estará en su cliente de correo)
+        // emailInput.classList.remove('visible');
+        // emailInput.value = '';
+        // portfolioButton.textContent = "REQUEST FULL PORTFOLIO";
+        
+    } else {
+        // Estado inicial: Muestra el campo de correo
+        emailInput.classList.add('visible');
+        emailInput.focus(); // Pone el cursor en el campo
+        
+        // Comprueba si ya está listo para "SEND MAIL" (en caso de que el usuario haga clic de nuevo)
+        checkEmailStatus();
+    }
 }
 
 // 2. Comprueba el estado del campo de correo para cambiar el texto del botón
 function checkEmailStatus() {
-    const emailInput = document.getElementById('emailInput');
-    const portfolioButton = document.getElementById('portfolioButton');
-    
-    // Utiliza un regex simple para comprobar si parece un correo
-    const emailPattern = /\S+@\S+\.\S+/; 
+    const emailInput = document.getElementById('emailInput');
+    const portfolioButton = document.getElementById('portfolioButton');
+    
+    // Utiliza un regex simple para comprobar si parece un correo
+    const emailPattern = /\S+@\S+\.\S+/; 
 
-    if (emailInput.classList.contains('visible') && emailPattern.test(emailInput.value)) {
-        portfolioButton.textContent = "SEND MAIL";
-    } else {
-        portfolioButton.textContent = "REQUEST FULL PORTFOLIO";
-    }
+    if (emailInput.classList.contains('visible') && emailPattern.test(emailInput.value)) {
+        portfolioButton.textContent = "SEND MAIL";
+    } else {
+        portfolioButton.textContent = "REQUEST FULL PORTFOLIO";
+    }
 }
-    </script>
+    </script>
 </body>
 </html>
