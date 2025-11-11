@@ -1,0 +1,255 @@
+
+body {
+    position: relative;
+    /* La parte de overflow: hidden puede ser ajustada si las ventanas se salen mucho */
+    overflow: hidden; 
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    /* Tipografía a 11pt */
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    line-height: 1.5;
+
+    /* Margen en ambos lados para imitar el padding: 15px en body */
+    margin: 15px;
+    padding-bottom: 0;
+    height: 100vh;
+}
+
+/* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
+.container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ESTILOS DE ENLACES */
+a {
+    color: #0000ff;
+    letter-spacing: -0.3px;
+    text-decoration: underline;
+}
+
+/* CABECERA Y CONTACTO (ALINEACIÓN DERECHA) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Contenedor principal de la izquierda */
+.main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-info p {
+    margin: 0;
+    padding: 0;
+    /* Asegurar que el texto dentro de main-info se alinea a la izquierda */
+    text-align: left; 
+}
+
+
+/* Contenedor de contacto y botón (derecha) */
+.contact-info {
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.contact-info p {
+     color: #0000ff;
+     font-size: 1em;
+     margin: 0;
+     white-space: nowrap;
+}
+
+/* === ESTILOS DEL BOTÓN (PORTFOLIO REQUEST) === */
+.button {
+    align-items: justify;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    margin-top: 2px; /* Margen para separarlo del email */
+    padding: 1px 1px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+    font-size: 11pt; /* Asegurar que mantiene el tamaño de fuente */
+}
+
+.button-primary {
+    background-color: #8B4513;
+    color: white;
+    font-weight: regular;
+}
+
+.button-primary:hover {
+    background-color: #A0522D;
+}
+
+/* === ESTILOS PARA TÍTULO Y TEXTO CENTRAL === */
+
+.about-container {
+     /* Eliminación de borde y sombra */
+     border: none; 
+     box-shadow: none;
+     padding: 15px;
+     /* Centrado vertical */
+     margin: 100px auto 40px auto; 
+     width: 80%;
+     max-width: 600px;
+     background-color: white;
+     z-index: 1;
+     position: relative;
+}
+
+.about-text {
+    /* Texto About me! */
+    text-align: justify;
+    margin: 0;
+    font-size: 1em;
+    color: black;
+    line-height: 1.5;
+}
+
+.highlight-blue {
+     /* Color de highlight igual al de los enlaces (#0000ff) */
+     background-color: #0000ff;
+     color: white;
+     padding: 2px 4px;
+     line-height: 1;
+     box-decoration-break: clone;
+}
+
+/* === ESTILOS PARA LAS VENTANAS FLOTANTES === */
+.window {
+    position: absolute;
+    min-width: 150px;
+    min-height: 100px;
+
+    background-color: #f0f0f0;
+    border: 0px solid #333;
+    box-shadow: 0px 0px 0px #888;
+    z-index: 100;
+
+    resize: none;
+    overflow: visible;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.window-body {
+    padding: 0;
+    flex-grow: 1;
+    overflow: hidden;
+    cursor: move;
+}
+
+.window-body img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.window-footer {
+    cursor: move;
+    background-color: #f0f0f0;
+    color: #f0f0f0;
+    padding: 1px 1px;
+    border-top: 0px solid #333;
+    user-select: none;
+    flex-shrink: 0;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 35px; /* Asegurar que el footer tiene una altura fija */
+}
+
+.filename-text {
+    color: #8B4513;
+    font-weight: regular;
+    margin-right: 5px;
+}
+
+.dimensions-text {
+    color: #000;
+    font-style: italic;
+}
+
+.resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: #0d0d0d;
+    cursor: nwse-resize;
+    z-index: 10;
+}
+
+.active-drag, .active-resize {
+    z-index: 1000;
+}
+
+/* Contenedor flexible para alinear el input y el botón */
+.request-form {
+    display: flex;
+    align-items: bottom; /* Centrar verticalmente el input y el botón */
+    margin-top: 1px; /* Mantiene la separación con el email anterior */
+    transition: width 0.3s;
+}
+
+/* Estilos para el campo de correo (inicialmente oculto o pequeño) */
+.email-input {
+    border: 0.5px solid #333;
+    background-color: white;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    padding: 2px 4px;
+    margin-right: 10px; /* Espacio entre el input y el botón */
+    width: 0; /* Empieza oculto */
+    opacity: 0;
+    visibility: hidden;
+    transition: width 0.3s, opacity 0.3s;
+    box-sizing: border-box; /* Asegura que el padding no afecte el width total */
+    height: 100%; /* Igualar la altura del botón */
+}
+
+/* Clase para mostrar el campo de correo */
+.email-input.visible {
+    width: 200px; /* Ancho deseado para el campo de correo */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* === ESTILOS PARA EL PIE DE PÁGINA DE ATRIBUCIÓN (Nueva estrategia: Absolute) === */
+.footer-attribution {
+    /* Posición absoluta referenciada al body */
+    position: absolute; 
+    
+    /* Colocado en la esquina inferior derecha */
+    bottom: 15px; 
+    right: 15px; 
+    
+    /* Estilo de texto */
+    color: #aaaaaa; /* Gris claro */
+    font-size: 8pt; /* Tamaño más pequeño y discreto */
+    z-index: 50; /* Debe estar por encima de otros elementos */
+}
