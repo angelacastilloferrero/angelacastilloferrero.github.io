@@ -745,14 +745,14 @@ function handlePortfolioRequest() {
         // Opcional: Ocultar el input y restablecer el botón después del envío (aunque el usuario ya estará en su cliente de correo)
         // emailInput.classList.remove('visible');
         // emailInput.value = '';
-        // portfolioButton.textContent = "REQUEST FULL PORTFOLIO";
+        // portfolioButton.textContent = "request full portfolio";
         
     } else {
         // Estado inicial: Muestra el campo de correo
         emailInput.classList.add('visible');
         emailInput.focus(); // Pone el cursor en el campo
         
-        // Comprueba si ya está listo para "SEND MAIL" (en caso de que el usuario haga clic de nuevo)
+        // Comprueba si ya está listo para "send!" (en caso de que el usuario haga clic de nuevo)
         checkEmailStatus();
     }
 }
@@ -763,7 +763,7 @@ function checkEmailStatus() {
     const portfolioButton = document.getElementById('portfolioButton');
     
     // Utiliza un regex simple para comprobar si parece un correo
-    const emailPattern = /\S+@\S+\.\S+/; 
+    const emailPattern = /\S+@\S+\.(com|net|org|es|gov|edu|io|co|info|biz)/i;
 
     if (emailInput.classList.contains('visible') && emailPattern.test(emailInput.value)) {
         portfolioButton.textContent = "SEND MAIL";
