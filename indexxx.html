@@ -11,217 +11,215 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <style>
-        /* DEFINICIÓN DE FUENTE GLOBAL Y TAMAÑO */
-        body {
-            position: relative;
-            /* La parte de overflow: hidden puede ser ajustada si las ventanas se salen mucho */
-            overflow: hidden; 
-            background-size: cover;
-            background-repeat: no-repeat;
+       /* DEFINICIÓN DE FUENTE GLOBAL Y TAMAÑO */
+body {
+    position: relative;
+    /* La parte de overflow: hidden puede ser ajustada si las ventanas se salen mucho */
+    overflow: hidden; 
+    background-size: cover;
+    background-repeat: no-repeat;
 
-            /* Tipografía a 11pt */
-            font-family: "Times New Roman", Times, serif;
-            font-size: 11pt;
-            line-height: 1.5;
+    /* Tipografía a 11pt */
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    line-height: 1.5;
 
-            /* Margen en ambos lados para imitar el padding: 15px en body */
-            margin: 15px;
-            padding-bottom: 0;
-            height: 100vh;
-        }
+    /* Margen en ambos lados para imitar el padding: 15px en body */
+    margin: 15px;
+    padding-bottom: 0;
+    height: 100vh;
+}
 
-        /* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
-        .container {
-            max-width: 100%;
-            width: 100%;
-            margin: 0px;
-            padding: 0px;
-        }
+/* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
+.container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
 
-        /* ESTILOS DE ENLACES */
-        a {
-            color: #0000ff;
-            letter-spacing: -0.3px;
-            text-decoration: underline;
-        }
+/* ESTILOS DE ENLACES */
+a {
+    color: #0000ff;
+    letter-spacing: -0.3px;
+    text-decoration: underline;
+}
 
-        /* CABECERA Y CONTACTO (ALINEACIÓN DERECHA) */
-            .header {
-                display: flex;
-                justify-content: space-between;
-                /* Mantenemos flex-start para alinear todo en la parte superior */
-                align-items: flex-start;
-                width: 100%;
-                margin-bottom: 20px;
-        }
+/* CABECERA Y CONTACTO (ALINEACIÓN DERECHA) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+}
 
-        /* Contenedor principal de la izquierda */
-        .main-info {
-            align-items: flex-start;
-        }
+/* Contenedor principal de la izquierda */
+.main-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
-        .main-info p {
-            margin: 0;
-            padding: 0;
-            /* Asegurar que el texto dentro de main-info se alinea a la izquierda */
-            text-align: left; 
-        }
+.main-info p {
+    margin: 0;
+    padding: 0;
+    /* Asegurar que el texto dentro de main-info se alinea a la izquierda */
+    text-align: left; 
+}
 
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            /* Eliminamos cualquier posible margen superior residual. */
-            margin-top: 0;
-        }
+/* Contenedor de contacto y botón (derecha) */
+.contact-info {
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-end;
+}
 
-        .contact-info p {
-            color: #0000ff;
-            font-size: 1em;
-            /* **AJUSTE CLAVE:** Elimina el margen superior/inferior por defecto del <p> */
-            /* que estaba causando la desalineación. */
-            margin: 0;
-            white-space: nowrap;
-        }
-        
-        /* === ESTILOS DEL BOTÓN (PORTFOLIO REQUEST) === */
-        .button {
-            align-items: justify;
-            -webkit-appearance: none;
-            appearance: none;
-            border: 0;
-            border-radius: 5px;
-            color: #1a1a1a;
-            cursor: pointer;
-            display: inline-flex;
-            font: inherit;
-            margin-top: 5px; /* Margen para separarlo del email */
-            padding: 2px 2px;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: background-color 0.2s;
-            font-size: 11pt; /* Asegurar que mantiene el tamaño de fuente */
-        }
+.contact-info p {
+     color: #0000ff;
+     font-size: 1em;
+     margin: 0;
+     white-space: nowrap;
+}
 
-        .button-primary {
-            background-color: #8B4513;
-            color: white;
-            font-weight: regular;
-        }
+/* === ESTILOS DEL BOTÓN (PORTFOLIO REQUEST) === */
+.button {
+    align-items: justify;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    margin-top: 5px; /* Margen para separarlo del email */
+    padding: 2px 2px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+    font-size: 11pt; /* Asegurar que mantiene el tamaño de fuente */
+}
 
-        .button-primary:hover {
-            background-color: #A0522D;
-        }
+.button-primary {
+    background-color: #8B4513;
+    color: white;
+    font-weight: regular;
+}
 
-        /* === ESTILOS PARA TÍTULO Y TEXTO CENTRAL === */
+.button-primary:hover {
+    background-color: #A0522D;
+}
 
-        .about-container {
-             /* Eliminación de borde y sombra */
-             border: none; 
-             box-shadow: none;
-             padding: 15px;
-             /* Centrado vertical */
-             margin: 100px auto 40px auto; 
-             width: 80%;
-             max-width: 600px;
-             background-color: white;
-             z-index: 1;
-             position: relative;
-        }
+/* === ESTILOS PARA TÍTULO Y TEXTO CENTRAL === */
 
-        .about-text {
-            /* Texto About me! */
-            text-align: justify;
-            margin: 0;
-            font-size: 1em;
-            color: black;
-            line-height: 1.5;
-        }
+.about-container {
+     /* Eliminación de borde y sombra */
+     border: none; 
+     box-shadow: none;
+     padding: 15px;
+     /* Centrado vertical */
+     margin: 100px auto 40px auto; 
+     width: 80%;
+     max-width: 600px;
+     background-color: white;
+     z-index: 1;
+     position: relative;
+}
 
-        .highlight-blue {
-             /* Color de highlight igual al de los enlaces (#0000ff) */
-             background-color: #0000ff;
-             color: white;
-             padding: 2px 4px;
-             line-height: 1;
-             box-decoration-break: clone;
-        }
+.about-text {
+    /* Texto About me! */
+    text-align: justify;
+    margin: 0;
+    font-size: 1em;
+    color: black;
+    line-height: 1.5;
+}
 
-        /* === ESTILOS PARA LAS VENTANAS FLOTANTES === */
-        .window {
-            position: absolute;
-            min-width: 150px;
-            min-height: 100px;
+.highlight-blue {
+     /* Color de highlight igual al de los enlaces (#0000ff) */
+     background-color: #0000ff;
+     color: white;
+     padding: 2px 4px;
+     line-height: 1;
+     box-decoration-break: clone;
+}
 
-            background-color: #f0f0f0;
-            border: 0px solid #333;
-            box-shadow: 0px 0px 0px #888;
-            z-index: 100;
+/* === ESTILOS PARA LAS VENTANAS FLOTANTES === */
+.window {
+    position: absolute;
+    min-width: 150px;
+    min-height: 100px;
 
-            resize: none;
-            overflow: visible;
-            cursor: pointer;
+    background-color: #f0f0f0;
+    border: 0px solid #333;
+    box-shadow: 0px 0px 0px #888;
+    z-index: 100;
 
-            display: flex;
-            flex-direction: column;
-        }
+    resize: none;
+    overflow: visible;
+    cursor: pointer;
 
-        .window-body {
-            padding: 0;
-            flex-grow: 1;
-            overflow: hidden;
-            cursor: move;
-        }
+    display: flex;
+    flex-direction: column;
+}
 
-        .window-body img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.window-body {
+    padding: 0;
+    flex-grow: 1;
+    overflow: hidden;
+    cursor: move;
+}
 
-        .window-footer {
-            cursor: move;
-            background-color: #f0f0f0;
-            color: #f0f0f0;
-            padding: 1px 1px;
-            border-top: 0px solid #333;
-            user-select: none;
-            flex-shrink: 0;
-            text-align: left;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+.window-body img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .filename-text {
-            color: #8B4513;
-            font-weight: regular;
-            margin-right: 5px;
-        }
+.window-footer {
+    cursor: move;
+    background-color: #f0f0f0;
+    color: #f0f0f0;
+    padding: 1px 1px;
+    border-top: 0px solid #333;
+    user-select: none;
+    flex-shrink: 0;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-        .dimensions-text {
-            color: #000;
-            font-style: italic;
-        }
+.filename-text {
+    color: #8B4513;
+    font-weight: regular;
+    margin-right: 5px;
+}
 
-        .resize-handle {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 10px;
-            height: 10px;
-            background: #0d0d0d;
-            cursor: nwse-resize;
-            z-index: 10;
-        }
+.dimensions-text {
+    color: #000;
+    font-style: italic;
+}
 
-        .active-drag, .active-resize {
-            z-index: 1000;
-        }
+.resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background: #0d0d0d;
+    cursor: nwse-resize;
+    z-index: 10;
+}
 
-        /* --- NUEVOS ESTILOS A AÑADIR EN <style> --- */
+.active-drag, .active-resize {
+    z-index: 1000;
+}
+
+/* --- NUEVOS ESTILOS A AÑADIR EN <style> --- */
 
 /* Contenedor flexible para alinear el input y el botón */
 .request-form {
