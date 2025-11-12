@@ -90,13 +90,13 @@ a {
 }
 
 .button-primary {
-    background-color: #8B4513;
+    background-color: #0000ff;
     color: white;
     font-weight: regular;
 }
 
 .button-primary:hover {
-    background-color: #A0522D;
+    background-color: #0000ff;
 }
 
 /* === ESTILOS PARA TÍTULO Y TEXTO CENTRAL === */
@@ -185,6 +185,7 @@ a {
     color: #8B4513;
     font-weight: regular;
     margin-right: 5px;
+    font-size: 8pt;
 }
 
 .dimensions-text {
