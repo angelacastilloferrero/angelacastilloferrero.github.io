@@ -178,7 +178,7 @@ a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 35px; /* Asegurar que el footer tiene una altura fija */
+    
 }
 
 .filename-text {
