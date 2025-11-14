@@ -240,18 +240,17 @@ a {
     opacity: 1;
     visibility: visible;
 }
+     .footer-attribution {
+    position: absolute;
+    bottom: 0; 
+    right: 0;  
+    color: #aaaaaa;
+    font-size: 8pt;
+    z-index: 50;
+    transform: rotate(-90deg); /* Rota el elemento -90 grados (sentido antihorario) */
+    transform-origin: 100% 100%; /* Define el punto de rotación en la esquina inferior derecha del elemento */
+    padding-right: 15px; 
+    padding-bottom: 15px;
+    margin-right: 5px; 
 
-/* === ESTILOS PARA EL PIE DE PÁGINA DE ATRIBUCIÓN (Nueva estrategia: Absolute) === */
-.footer-attribution {
-    /* Posición absoluta referenciada al body */
-    position: absolute; 
-    
-    /* Colocado en la esquina inferior derecha */
-    bottom: 15px; 
-    right: 15px; 
-    
-    /* Estilo de texto */
-    color: #aaaaaa; /* Gris claro */
-    font-size: 8pt; /* Tamaño más pequeño y discreto */
-    z-index: 50; /* Debe estar por encima de otros elementos */
-}
+         }
