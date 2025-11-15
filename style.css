@@ -203,36 +203,31 @@ a {
     background: #0d0d0d; /* Fondo negro */
     cursor: nwse-resize;
     z-index: 10;
-    overflow: hidden; /* Mantenemos esto por si acaso */
+    /* overflow: hidden; */ /* No es necesario, pero lo puedes dejar */
 }
 
-/* El pseudo-elemento crea el triángulo blanco diagonal */
+/* El pseudo-elemento crea la línea diagonal blanca */
 .resize-handle::after {
     content: '';
     display: block;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 0;
+    /* Usamos el borde superior para la línea, y lo colocamos en el centro */
     
-    /* Creamos un triángulo con bordes que apunta hacia la esquina. */
-    /* La flecha blanca diagonal se forma con los bordes superior e izquierdo. */
-    /* Los bordes tienen que ser más grandes que el handle para rellenar */
-    border-bottom: 10px solid white; 
-    border-left: 10px solid white;
-    
-    /* Los otros bordes son transparentes */
-    border-top: 10px solid transparent; 
-    border-right: 10px solid transparent; 
-    
-    /* Lo rotamos para darle la inclinación perfecta */
-    transform: rotate(-45deg);
-    transform-origin: 100% 100%; /* Rotar desde la esquina inferior derecha */
+    /* 1. Crea la línea diagonal (un borde de 1px) */
+    width: 12px; /* Más ancho que el handle para que cruce */
+    height: 1px; /* Espesor de la línea */
+    background: white; /* Color de la línea/flecha */
 
-    /* Posicionamiento fino */
-    right: -5px; 
-    bottom: -5px; 
+    /* 2. Posicionamiento en el centro (ajustado visualmente) */
+    top: 50%; 
+    left: 50%;
+    
+    /* 3. Rotación y ajuste */
+    /* Mueve la línea para que su centro esté en el centro del handle */
+    transform: translate(-50%, -50%) rotate(45deg); 
+    
+    /* Nota: La flecha del cursor 'nwse-resize' ya indica la dirección,
+    * pero esta línea blanca ayuda a destacar el área. */
 }
 
 .active-drag, .active-resize {
