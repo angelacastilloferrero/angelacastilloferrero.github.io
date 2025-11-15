@@ -206,30 +206,6 @@ a {
     /* overflow: hidden; */ /* No es necesario, pero lo puedes dejar */
 }
 
-/* El pseudo-elemento crea la línea diagonal blanca */
-.resize-handle::after {
-    content: '';
-    display: block;
-    position: absolute;
-    /* Usamos el borde superior para la línea, y lo colocamos en el centro */
-    
-    /* 1. Crea la línea diagonal (un borde de 1px) */
-    width: 12px; /* Más ancho que el handle para que cruce */
-    height: 1px; /* Espesor de la línea */
-    background: white; /* Color de la línea/flecha */
-
-    /* 2. Posicionamiento en el centro (ajustado visualmente) */
-    top: 50%; 
-    left: 50%;
-    
-    /* 3. Rotación y ajuste */
-    /* Mueve la línea para que su centro esté en el centro del handle */
-    transform: translate(-50%, -50%) rotate(45deg); 
-    
-    /* Nota: La flecha del cursor 'nwse-resize' ya indica la dirección,
-    * pero esta línea blanca ayuda a destacar el área. */
-}
-
 .active-drag, .active-resize {
     z-index: 1000;
 }
