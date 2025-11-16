@@ -17,6 +17,13 @@ body {
     height: 100vh;
 }
 
+::selection {
+  background: #874800;
+  color: #0000ff;
+  text-shadow: 1px 1px 1px white, 1px -1px 1px #0000ff, -1px 1px 1px #0000ff, -1px -1px 1px #0000ff;
+}
+
+
 /* EL CONTENEDOR OCUPA EL 100% DEL ANCHO */
 .container {
     max-width: 100%;
