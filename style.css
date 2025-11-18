@@ -247,12 +247,12 @@ a {
     width: 200px; /* Ancho deseado para el campo de correo */
     opacity: 1;
     visibility: visible;
-} /* <-- La llave de cierre correcta para .email-input.visible */
+} 
 
 /* --- Estilos para el Watermark (Independiente) --- */
 .watermark {
     font-size: 10px; 
     color: black;    
-    padding-top: 100px;
+    positio: absolute;
 } 
-/* <-- Nota: No hay llave de cierre extra aquí. */
+
