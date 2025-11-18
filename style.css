@@ -247,5 +247,11 @@ a {
     width: 200px; /* Ancho deseado para el campo de correo */
     opacity: 1;
     visibility: visible;
+    
 }
-     
+    .watermark {
+     /* Eliminación de borde y sombra */
+    font-size: 10px; 
+    bottom: 0;
+    right: 0;
+} 
