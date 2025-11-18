@@ -250,8 +250,7 @@ a {
     
 }
     .watermark {
-     /* Eliminación de borde y sombra */
     font-size: 10px; 
-    bottom: 0;
-    right: 0;
+    color: black;    
+    padding-top: 100px;
 } 
