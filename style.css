@@ -253,6 +253,6 @@ a {
 .watermark {
     font-size: 10px; 
     color: black;    
-    position: absolute;
+    position: fixed;
 } 
 
