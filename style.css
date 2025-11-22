@@ -255,6 +255,6 @@ a {
     color: black;    
     position: fixed;
     bottom: 15px;
-    padding-left: 150px
+    align-items: left;
 } 
 
