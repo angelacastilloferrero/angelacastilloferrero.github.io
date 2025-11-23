@@ -58,7 +58,6 @@ a {
 .main-info p {
     margin: 0;
     padding: 0;
-    /* Asegurar que el texto dentro de main-info se alinea a la izquierda */
     text-align: left; 
 }
 
@@ -126,9 +125,11 @@ a {
     /* Texto About me! */
     text-align: justify;
     margin: 0;
-    font-size: 1em;
+    font-size: 9pt;
+    font-weight: italic;
     color: black;
     line-height: 1.5;
+    
 }
 
 .highlight-blue {
