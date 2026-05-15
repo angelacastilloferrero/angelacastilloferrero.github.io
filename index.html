@@ -33,7 +33,6 @@
     </script>
 
     <style>
-       
         .visually-hidden {
             position: absolute;
             width: 1px;
@@ -46,6 +45,9 @@
             border: 0;
         }
     </style>
+
+    <!-- Umami Analytics -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="c2f86238-601f-42c7-b93c-4a58f05f1aae"></script>
 </head>
 
 <body>
@@ -56,7 +58,7 @@
 
         <header class="header">
             <div class="main-info">
-                <a href="https://www.instagram.com/angelaquehaces" target="_blank">Ángela Castillo Ferrero</a>
+                <a href="https://www.instagram.com/angelaquehaces" target="_blank" data-umami-event="instagram-click">Ángela Castillo Ferrero</a>
                 Jewelry / Fashion Accessories designer
                 <br>
                 Based in Barcelona
@@ -68,7 +70,7 @@
                 </address>
                 castilloferreroangela@gmail.com
                 
-                 <div class="request-form" id="requestForm">
+                <div class="request-form" id="requestForm">
                     <input type="email" 
                                 id="emailInput" 
                                 class="email-input" 
@@ -78,7 +80,8 @@
 
                     <button class="button button-primary" 
                                 id="portfolioButton" 
-                                onclick="handlePortfolioRequest()">
+                                onclick="handlePortfolioRequest()"
+                                data-umami-event="portfolio-request-click">
                         request full portfolio
                     </button>
                 </div>
